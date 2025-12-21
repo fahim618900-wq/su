@@ -1,25 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reaction Timer Game</title>
-    <link rel="stylesheet" href="game2.css">
-</head>
-<body>
-    <header>
-        <h1>Reaction Timer Game</h1>
-        <a href="../index.html" class="btn">Back to Home</a>
-    </header>
+const light = document.getElementById('light');
+const clickBtn = document.getElementById('clickBtn');
+const timeDisplay = document.getElementById('timeDisplay');
+const message = document.getElementById('message');
 
-    <main>
-        <p>Wait for the green light, then click as fast as you can!</p>
-        <div id="light" class="light red"></div>
-        <button id="clickBtn" disabled>Click Me!</button>
-        <p id="timeDisplay">Your time: 0 ms</p>
-        <p id="message"></p>
-    </main>
+let startTime;
+let timeout;
 
-    <script src="game2.js"></script>
-</body>
-</html>
+// Start the game
+function startGame(){
+    // Reset
+    light.className = 'light red';
+    clickBtn.disabled = true;
+    message.textContent = '';
+    timeDisplay.textContent = 'Your time: 0 ms';
+
+    // Random delay before green light
+    const delay = Math.floor(Math.random() * 3000) + 2000; // 2-5 sec
+    light.className = 'light yellow';
+
+    timeout = setTimeout(() => {
+        light.className = 'light green';
+        clickBtn.disabled = false;
+        startTime = new Date().getTime();
+    }, delay);
+}
+
+// Handle click
+clickBtn.addEventListener('click', () => {
+    const endTime = new Date().getTime();
+    const reactionTime = endTime - startTime;
+    timeDisplay.textContent = `Your time: ${reactionTime} ms`;
+    message.textContent = reactionTime < 250 ? '⚡ Amazing!' : reactionTime < 500 ? 'Good!' : 'Try Faster!';
+    startGame(); // restart automatically
+});
+
+// If user clicks too early
+clickBtn.addEventListener('mousedown', (e) => {
+    if(clickBtn.disabled){
+        clearTimeout(timeout);
+        message.textContent = 'Too soon! Wait for green.';
+        startGame();
+    }
+});
+
+// Initialize game
+startGame();
