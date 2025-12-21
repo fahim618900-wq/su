@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+.btn {
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+canvas {
+    border: 2px solid #333;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: crosshair;
+}
+
+.controls input {
+    padding: 5px 10px;
+    margin: 5px;
+    font-size: 1em;
+}
+
+.controls button {
+    padding: 5px 10px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    transition: 0.3s;
+}
+
+.controls button:hover {
+    background-color: #45a049;
+}
+
+.emoji-tools button {
+    font-size: 1.5em;
+    margin: 5px;
+    cursor: pointer;
+}
