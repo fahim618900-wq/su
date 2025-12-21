@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline 3D Scene</title>
+    <style>
+        body { margin:0; overflow:hidden; }
+        canvas { display:block; }
+        header {
+            position: absolute;
+            z-index: 10;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .btn {
+            color: white;
+            text-decoration: none;
+            background-color: #4CAF50;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        .btn:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+    <header>
+        <span>Offline 3D Scene</span>
+        <a href="../index.html" class="btn">Back to Home</a>
+    </header>
+
+    <!-- Three.js CDN offline (assume downloaded locally as three.min.js in /3d folder) -->
+    <script src="three.min.js"></script>
+    <script src="scene.js"></script>
+</body>
+</html>
