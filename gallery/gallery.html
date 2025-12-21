@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline Gallery</title>
+    <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+    <header>
+        <h1>Offline Gallery</h1>
+        <a href="../index.html" class="btn">Back to Home</a>
+    </header>
+
+    <main>
+        <section id="images">
+            <h2>Images</h2>
+            <div class="gallery-grid" id="imageGallery">
+                <!-- Images inserted via JS -->
+            </div>
+        </section>
+
+        <section id="videos">
+            <h2>Videos</h2>
+            <div class="gallery-grid" id="videoGallery">
+                <!-- Videos inserted via JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span id="close">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+        <video id="lightbox-video" controls></video>
+    </div>
+
+    <script src="gallery.js"></script>
+</body>
+</html>
