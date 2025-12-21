@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline Meme Generator</title>
+    <link rel="stylesheet" href="meme-generator.css">
+</head>
+<body>
+    <header>
+        <h1>Offline Meme Generator & Emoji Painter</h1>
+        <a href="../index.html" class="btn">Back to Home</a>
+    </header>
+
+    <main>
+        <canvas id="memeCanvas" width="500" height="400"></canvas>
+        <div class="controls">
+            <input type="text" id="topText" placeholder="Top Text">
+            <input type="text" id="bottomText" placeholder="Bottom Text">
+            <button id="drawBtn">Draw Meme</button>
+        </div>
+
+        <h3>Emoji Painter</h3>
+        <div class="emoji-tools">
+            <button class="emoji-btn">😀</button>
+            <button class="emoji-btn">😂</button>
+            <button class="emoji-btn">🥰</button>
+            <button class="emoji-btn">🤔</button>
+        </div>
+        <p>Click on canvas to place emoji</p>
+    </main>
+
+    <script src="meme-generator.js"></script>
+</body>
+</html>
