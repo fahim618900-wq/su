@@ -2,436 +2,515 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<meta name="theme-color" content="#1a5f7a">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<title>ফলাফল ২০২৬ | দারুল হিকমাহ মডেল মাদরাসা</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#0d5c63">
+<title>ফলাফল ২০২৬ — দারুল হিকমাহ</title>
 <style>
-  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-  :root{
-    --bg:#eef3f5;--card:#fff;--text:#0e2233;--dim:#647687;--border:#dbe4ea;
-    --primary:#0e7490;--primary-d:#0b5c72;--accent:#059669;--danger:#dc2626;
-    --gold:#d97706;--purple:#7c3aed;--silver:#6b7280;--bronze:#b45309;
-    --shadow:0 1px 3px rgba(14,34,51,.06),0 1px 2px rgba(14,34,51,.04);
-    --shadow-l:0 10px 25px rgba(14,34,51,.12),0 4px 10px rgba(14,34,51,.06);
-    --radius:16px;--radius-s:12px;
-  }
-  [data-theme="dark"]{
-    --bg:#0a121c;--card:#152029;--text:#e6f0f5;--dim:#7d93a5;--border:#233542;
-    --primary:#22b8d4;--primary-d:#0e7490;--accent:#10b981;
-    --shadow:0 1px 3px rgba(0,0,0,.5);--shadow-l:0 10px 25px rgba(0,0,0,.6);
-  }
-  html,body{height:100%;font-family:'Hind Siliguri',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;transition:background .25s,color .25s}
-  body{display:flex;flex-direction:column;min-height:100vh;max-width:100vw;font-size:15px;-webkit-font-smoothing:antialiased;overscroll-behavior-y:contain}
+@import url('https://fonts.maateen.me/kalpurush/font.css');
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#eef2f5;--card:#fff;--text:#1a2332;--dim:#64748b;--border:#e2e8f0;
+  --brand:#0d5c63;--brand-2:#0f766e;--accent:#0d9488;
+  --danger:#dc2626;--success:#059669;
+  --safe-b:env(safe-area-inset-bottom,0px);
+  --safe-t:env(safe-area-inset-top,0px);
+  --sh:0 2px 8px rgba(15,23,42,.06);
+  --sh-l:0 12px 32px rgba(15,23,42,.14);
+}
+[data-theme="dark"]{
+  --bg:#0a0f1a;--card:#111827;--text:#f1f5f9;--dim:#94a3b8;--border:#1f2937;
+  --brand:#14b8a6;--brand-2:#0d9488;
+  --sh:0 2px 8px rgba(0,0,0,.4);
+  --sh-l:0 12px 32px rgba(0,0,0,.6);
+}
+html,body{height:100%;font-family:'Kalpurush','Hind Siliguri',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;transition:background .3s,color .3s;-webkit-font-smoothing:antialiased}
+body{overscroll-behavior-y:contain}
 
-  /* ============== HEADER ============== */
-  .app-header{background:var(--card);padding:12px 14px 10px;position:sticky;top:0;z-index:100;box-shadow:var(--shadow);border-bottom:1px solid var(--border)}
-  .header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-  .brand{display:flex;align-items:center;gap:9px;min-width:0;flex:1}
-  .brand-logo{width:34px;height:34px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:17px;flex-shrink:0;box-shadow:0 3px 8px rgba(14,116,144,.3)}
-  .brand-text{min-width:0;flex:1}
-  .brand-text h1{font-size:14px;font-weight:700;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .brand-text p{font-size:10.5px;color:var(--dim);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .theme-toggle{width:36px;height:36px;border:none;background:var(--bg);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:17px;color:var(--text);transition:transform .2s,background .2s;flex-shrink:0}
-  .theme-toggle:active{transform:scale(.9);background:var(--border)}
+.screen{position:fixed;inset:0;display:none;flex-direction:column;overflow:hidden;background:var(--bg)}
+.screen.on{display:flex;animation:fadeIn .35s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
+.screen.slide.on{animation:slideIn .3s cubic-bezier(.4,0,.2,1)}
+.body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:24px 20px calc(24px + var(--safe-b))}
 
-  /* ============== SEARCH BOX ============== */
-  .search-wrap{position:relative}
-  .search-box{display:flex;align-items:center;background:var(--bg);border:2px solid transparent;border-radius:14px;padding:0 4px 0 12px;height:48px;transition:border-color .2s,box-shadow .2s}
-  .search-box.focused{border-color:var(--primary);box-shadow:0 0 0 4px rgba(14,116,144,.12)}
-  .search-box .icon{font-size:16px;color:var(--dim);margin-right:7px;flex-shrink:0}
-  #searchInput{flex:1;border:none;outline:none;background:transparent;font-size:15.5px;color:var(--text);font-family:inherit;padding:0;min-width:0;font-weight:500}
-  #searchInput::placeholder{color:var(--dim);font-size:14.5px;font-weight:400}
-  .btn-ic{width:36px;height:36px;border:none;background:transparent;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--dim);transition:background .15s,color .15s;flex-shrink:0;font-family:inherit}
-  .btn-ic:active{background:var(--border);color:var(--text)}
-  #btnClear{display:none}
-  #btnClear.vis{display:flex}
-  #btnVoice.listening{background:var(--danger);color:#fff;animation:pulse 1s infinite}
-  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,.6)}50%{box-shadow:0 0 0 10px rgba(220,38,38,0)}}
+/* WELCOME */
+.welcome{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100%;padding:40px 24px;text-align:center}
+.w-ic{width:110px;height:110px;background:linear-gradient(135deg,var(--brand),var(--accent));border-radius:32px;display:flex;align-items:center;justify-content:center;font-size:56px;box-shadow:0 16px 40px rgba(13,92,99,.35);margin-bottom:28px;animation:bounce 2.5s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.w-title{font-size:28px;font-weight:800;margin-bottom:8px;line-height:1.2}
+.w-sub{font-size:15px;color:var(--dim);margin-bottom:8px;font-weight:600}
+.w-desc{font-size:14px;color:var(--dim);line-height:1.7;margin-bottom:32px;max-width:320px}
+.w-btn{padding:16px 40px;border:none;border-radius:16px;font-size:16px;font-weight:800;font-family:inherit;cursor:pointer;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 12px 28px rgba(13,92,99,.35);transition:all .2s;display:inline-flex;align-items:center;gap:9px}
+.w-btn:active{transform:scale(.96)}
+.w-foot{margin-top:40px;font-size:11px;color:var(--dim);opacity:.7}
 
-  /* ============== FILTERS ============== */
-  .filters{display:flex;gap:6px;overflow-x:auto;padding:10px 0 2px;scrollbar-width:none;-ms-overflow-style:none}
-  .filters::-webkit-scrollbar{display:none}
-  .chip{padding:6px 14px;background:var(--bg);border:1.5px solid var(--border);border-radius:18px;font-size:12.5px;font-weight:600;color:var(--dim);cursor:pointer;white-space:nowrap;transition:all .15s;flex-shrink:0;font-family:inherit}
-  .chip.active{background:var(--primary);color:#fff;border-color:var(--primary);box-shadow:0 2px 8px rgba(14,116,144,.25)}
-  .chip:active{transform:scale(.94)}
+/* CLASS SELECT */
+.sel-hd{text-align:center;margin-bottom:26px;padding-top:20px}
+.sel-hd-ic{width:64px;height:64px;background:var(--card);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 14px;box-shadow:var(--sh)}
+.sel-hd-t{font-size:19px;font-weight:800;margin-bottom:6px;line-height:1.35;max-width:320px;margin-left:auto;margin-right:auto}
+.sel-hd-s{font-size:13px;color:var(--dim);line-height:1.5}
+.class-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;max-width:440px;margin:0 auto}
+.class-btn{background:var(--card);border:2px solid var(--border);border-radius:16px;padding:18px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;cursor:pointer;font-family:inherit;transition:all .18s;box-shadow:var(--sh);min-height:96px}
+.class-btn:active{transform:scale(.96);border-color:var(--brand);background:rgba(13,92,99,.06)}
+.class-btn .ic{font-size:26px;line-height:1}
+.class-btn .nm{font-size:15px;font-weight:800}
+.class-btn .en{font-size:10px;color:var(--dim);font-weight:600;letter-spacing:.5px;text-transform:uppercase}
 
-  /* ============== AUTOCOMPLETE ============== */
-  .autocomplete{position:absolute;top:calc(100% + 6px);left:0;right:0;background:var(--card);border-radius:12px;box-shadow:var(--shadow-l);max-height:260px;overflow-y:auto;z-index:200;display:none;border:1px solid var(--border);-webkit-overflow-scrolling:touch}
-  .autocomplete.show{display:block;animation:dropIn .15s ease}
-  @keyframes dropIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
-  .ac-item{padding:11px 14px;border-bottom:1px solid var(--border);cursor:pointer;font-size:14px;display:flex;align-items:center;gap:9px;transition:background .12s;font-family:inherit}
-  .ac-item:last-child{border-bottom:none}
-  .ac-item:active{background:var(--bg)}
-  .ac-item .ac-ic{font-size:14px;color:var(--primary);flex-shrink:0}
-  .ac-item .ac-tx{flex:1;font-weight:500}
-  .ac-item mark{background:rgba(5,150,105,.22);color:var(--accent);font-weight:700;padding:1px 2px;border-radius:3px}
-  .ac-item .ac-tp{font-size:10.5px;color:var(--dim);background:var(--bg);padding:2px 8px;border-radius:10px;font-weight:600;flex-shrink:0}
+/* SEARCH HEADER */
+.search-hd{background:var(--card);padding:calc(12px + var(--safe-t)) 16px 14px;border-bottom:1px solid var(--border);box-shadow:var(--sh);flex-shrink:0}
+.search-hd-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.back-btn{width:38px;height:38px;border:none;background:var(--bg);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;color:var(--text);cursor:pointer;flex-shrink:0;font-family:inherit}
+.back-btn:active{background:var(--border);transform:scale(.92)}
+.cls-chip{display:flex;align-items:center;gap:7px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;padding:8px 14px;border-radius:20px;font-size:14px;font-weight:700;box-shadow:0 4px 12px rgba(13,92,99,.25);cursor:pointer;flex:1;justify-content:center;max-width:220px;font-family:inherit;border:none}
+.cls-chip:active{transform:scale(.97)}
+.theme-btn{width:38px;height:38px;border:none;background:var(--bg);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;color:var(--text);flex-shrink:0;font-family:inherit;margin-left:auto}
+.theme-btn:active{transform:scale(.9)}
+.search-bar{display:flex;align-items:center;background:var(--bg);border:2px solid transparent;border-radius:14px;padding:0 6px 0 14px;height:50px;transition:all .2s}
+.search-bar.on{border-color:var(--brand);background:var(--card);box-shadow:0 0 0 4px rgba(13,92,99,.1)}
+.search-bar .ic{font-size:16px;color:var(--dim);margin-right:8px;flex-shrink:0}
+#q{flex:1;border:none;outline:none;background:transparent;font-size:16px;color:var(--text);font-family:inherit;padding:0;min-width:0;font-weight:500}
+#q::placeholder{color:var(--dim);font-size:15px;font-weight:400}
+.ib{width:36px;height:36px;border:none;background:transparent;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px;color:var(--dim);flex-shrink:0;font-family:inherit}
+.ib:active{background:var(--border)}
+.ib.on{background:var(--danger);color:#fff;animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,.6)}50%{box-shadow:0 0 0 10px rgba(220,38,38,0)}}
 
-  /* ============== SORT BAR ============== */
-  .sort-bar{display:none;align-items:center;justify-content:space-between;padding:9px 14px;background:var(--card);border-bottom:1px solid var(--border);font-size:12.5px;color:var(--dim);position:sticky;top:98px;z-index:50}
-  .sort-bar.show{display:flex}
-  .sort-bar select{border:1px solid var(--border);background:var(--bg);color:var(--text);padding:5px 8px;border-radius:8px;font-size:12.5px;font-family:inherit;outline:none;font-weight:600;max-width:150px}
-  #resultMeta strong{color:var(--primary);font-weight:700}
+/* RESULT LIST */
+.res-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px 14px calc(24px + var(--safe-b))}
+.list-head{font-size:12px;color:var(--dim);font-weight:600;margin-bottom:10px;padding:0 4px;display:flex;justify-content:space-between;align-items:center}
+.list-head .cnt{background:var(--card);padding:3px 10px;border-radius:12px;font-weight:700;color:var(--brand);box-shadow:var(--sh)}
+.empty-res{text-align:center;padding:50px 20px;animation:fadeIn .3s ease}
+.empty-ic{font-size:56px;margin-bottom:12px;opacity:.5}
+.empty-t{font-size:17px;font-weight:700;margin-bottom:6px}
+.empty-tx{font-size:13.5px;color:var(--dim);line-height:1.6}
 
-  /* ============== MAIN ============== */
-  main{flex:1;padding:12px 14px 90px}
+/* ═══════════════════════════════════════════
+   PREMIUM RESULT CARD — GRADE COLOR BASED
+   ═══════════════════════════════════════════ */
+.st-card{background:var(--card);border-radius:18px;padding:0;margin-bottom:12px;box-shadow:var(--sh);cursor:pointer;transition:all .2s;overflow:hidden;display:flex;animation:in .3s ease both;position:relative;border:1px solid var(--border)}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.st-card:active{transform:scale(.98);box-shadow:var(--sh-l)}
 
-  /* ============== RESULT CARDS ============== */
-  .result-list{display:flex;flex-direction:column;gap:9px}
-  .result-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:13px 14px;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s;position:relative;overflow:hidden;cursor:pointer;animation:cardIn .25s ease both}
-  @keyframes cardIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-  .result-card:active{transform:scale(.985);box-shadow:var(--shadow-l)}
-  .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:7px}
-  .card-name{font-size:15.5px;font-weight:700;line-height:1.3;flex:1;word-break:break-word}
-  .card-name mark{background:linear-gradient(180deg,transparent 55%,rgba(5,150,105,.35) 55%);color:var(--accent);font-weight:800;padding:0 2px;border-radius:2px}
-  .badge-class{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:11px;background:rgba(14,116,144,.14);color:var(--primary);white-space:nowrap;flex-shrink:0}
-  [data-theme="dark"] .badge-class{background:rgba(34,184,212,.18)}
-  .card-info{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:12.5px;color:var(--dim);margin-top:5px}
-  .card-info strong{color:var(--text);font-weight:600}
-  .rank-badge{display:inline-flex;align-items:center;gap:3px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;font-weight:700;font-size:11.5px;padding:3px 9px;border-radius:11px}
-  .rank-badge.r1{background:linear-gradient(135deg,#f59e0b,#d97706)}
-  .rank-badge.r2{background:linear-gradient(135deg,#94a3b8,#6b7280)}
-  .rank-badge.r3{background:linear-gradient(135deg,#d97706,#b45309)}
-  .rank-badge.shared{background:linear-gradient(135deg,#7c3aed,#5b21b6)!important}
-  .marks-big{font-size:15px;font-weight:800;color:var(--accent)}
-  .fail-tag{background:rgba(220,38,38,.14);color:var(--danger);font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:11px}
-  .rel-bar{position:absolute;bottom:0;left:0;height:2.5px;background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:0 2.5px 0 0;transition:width .35s}
-  .tap-hint{font-size:11px;color:var(--dim);margin-top:6px;padding-top:6px;border-top:1px dashed var(--border);display:flex;align-items:center;gap:5px;opacity:.8}
+/* Left grade strip */
+.st-card .strip{width:5px;flex-shrink:0}
+.st-card.g-aplus .strip{background:linear-gradient(180deg,#059669,#10b981)}
+.st-card.g-a .strip{background:linear-gradient(180deg,#0d9488,#14b8a6)}
+.st-card.g-aminus .strip{background:linear-gradient(180deg,#0891b2,#06b6d4)}
+.st-card.g-b .strip{background:linear-gradient(180deg,#d97706,#f59e0b)}
+.st-card.g-c .strip{background:linear-gradient(180deg,#ea580c,#f97316)}
+.st-card.g-d .strip{background:linear-gradient(180deg,#dc2626,#ef4444)}
+.st-card.g-f .strip{background:linear-gradient(180deg,#7f1d1d,#991b1b)}
 
-  /* ============== RECENT ============== */
-  .recent-block{margin-bottom:14px;animation:cardIn .3s ease}
-  .recent-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;font-size:13px;font-weight:700;color:var(--text)}
-  .recent-head button{font-size:11.5px;color:var(--danger);background:none;border:none;cursor:pointer;font-family:inherit;font-weight:600;padding:3px 6px;border-radius:6px}
-  .recent-head button:active{background:var(--border)}
-  .recent-chips{display:flex;flex-wrap:wrap;gap:7px}
-  .recent-chip{padding:7px 13px;background:var(--card);border:1px solid var(--border);border-radius:18px;font-size:12.5px;color:var(--text);cursor:pointer;display:flex;align-items:center;gap:5px;font-family:inherit;font-weight:500;transition:all .15s}
-  .recent-chip:active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.st-card .content{flex:1;padding:14px 15px;display:flex;align-items:center;gap:13px;min-width:0}
 
-  /* ============== EMPTY ============== */
-  .empty-state{text-align:center;padding:50px 20px;animation:cardIn .3s ease}
-  .empty-ic{font-size:58px;margin-bottom:14px;opacity:.5}
-  .empty-title{font-size:17px;font-weight:700;margin-bottom:7px}
-  .empty-tx{font-size:13.5px;color:var(--dim);margin-bottom:18px;line-height:1.6}
-  .suggestions{display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
-  .sug-chip{padding:9px 15px;background:var(--card);border:1.5px solid var(--border);border-radius:18px;font-size:13px;color:var(--primary);font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}
-  .sug-chip:active{background:var(--primary);color:#fff;border-color:var(--primary)}
+/* Avatar circle with grade */
+.st-card .avatar{width:52px;height:52px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.12);position:relative}
+.st-card.g-aplus .avatar{background:linear-gradient(135deg,#059669,#10b981)}
+.st-card.g-a .avatar{background:linear-gradient(135deg,#0d9488,#14b8a6)}
+.st-card.g-aminus .avatar{background:linear-gradient(135deg,#0891b2,#06b6d4)}
+.st-card.g-b .avatar{background:linear-gradient(135deg,#d97706,#f59e0b)}
+.st-card.g-c .avatar{background:linear-gradient(135deg,#ea580c,#f97316)}
+.st-card.g-d .avatar{background:linear-gradient(135deg,#dc2626,#ef4444)}
+.st-card.g-f .avatar{background:linear-gradient(135deg,#7f1d1d,#991b1b)}
 
-  /* ============== LOAD MORE ============== */
-  .load-more{width:100%;padding:13px;margin-top:14px;background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius-s);font-size:13.5px;font-weight:600;color:var(--primary);cursor:pointer;font-family:inherit;transition:all .15s;display:none}
-  .load-more.show{display:block}
-  .load-more:active{background:var(--bg)}
+.st-card .info{flex:1;min-width:0}
+.st-card .nm{font-size:16px;font-weight:700;color:var(--text);line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:1px}
+.st-card .nm mark{background:linear-gradient(180deg,transparent 55%,rgba(13,148,136,.35) 55%);color:var(--accent);font-weight:800;padding:0 2px;border-radius:2px}
+.st-card .en{font-size:11.5px;color:var(--dim);font-weight:500;letter-spacing:.3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:5px}
+.st-card .en mark{background:rgba(13,148,136,.22);color:var(--accent);font-weight:700;padding:0 2px;border-radius:2px}
+.st-card .meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.st-card .tag{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:9px;display:inline-flex;align-items:center;gap:3px}
+.st-card .tag-cls{background:rgba(13,92,99,.1);color:var(--brand)}
+[data-theme="dark"] .tag-cls{background:rgba(20,184,166,.15);color:var(--brand)}
+.st-card .tag-rk{background:rgba(217,119,6,.14);color:#b45309;font-weight:800}
+.st-card .tag-gpa{background:rgba(5,150,105,.12);color:#047857}
+.st-card.g-aplus .tag-gpa{background:rgba(5,150,105,.15);color:#047857}
+.st-card.g-f .tag-rk{background:rgba(220,38,38,.14);color:#991b1b}
 
-  /* ============== MODAL ============== */
-  .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;display:flex;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);animation:fadeIn .2s ease;padding:0}
-  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-  .modal-sheet{background:var(--card);width:100%;max-width:520px;max-height:90vh;border-radius:22px 22px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom));overflow-y:auto;-webkit-overflow-scrolling:touch;animation:slideUp .3s cubic-bezier(.4,0,.2,1)}
-  @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
-  .modal-handle{width:38px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 14px}
-  .modal-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:13px;gap:10px}
-  .modal-title{font-size:19px;font-weight:700;line-height:1.25;flex:1}
-  .modal-sub{font-size:12px;color:var(--dim);margin-top:3px}
-  .modal-close{width:34px;height:34px;border:none;background:var(--bg);border-radius:50%;font-size:16px;cursor:pointer;color:var(--text);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:inherit}
-  .modal-close:active{background:var(--border)}
-  .modal-badges{display:flex;gap:6px;margin-bottom:13px;flex-wrap:wrap}
-  .m-badge{background:var(--bg);padding:5px 11px;border-radius:11px;font-size:12px;font-weight:700}
-  .summary-box{background:var(--bg);border-radius:12px;padding:12px;margin-bottom:13px}
-  .summary-row{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:6px}
-  .summary-row:last-child{margin-bottom:0}
-  .summary-row span:first-child{color:var(--dim)}
-  .summary-row span:last-child{font-weight:700}
-  .subject-table{width:100%;border-collapse:collapse;font-size:12.5px;border-radius:11px;overflow:hidden;border:1px solid var(--border)}
-  .subject-table thead{background:var(--primary);color:#fff}
-  .subject-table th,.subject-table td{padding:9px 6px;text-align:center}
-  .subject-table th:first-child,.subject-table td:first-child{text-align:left;padding-left:11px}
-  .subject-table tbody tr{border-bottom:1px solid var(--border)}
-  .subject-table tbody tr:last-child{border-bottom:none}
-  .subject-table .sub-name{font-weight:500;font-size:12.5px}
-  .subject-table .mk{font-weight:700}
-  .subject-table .mk.fail{color:var(--danger)}
-  .subject-table .fm{color:var(--dim);font-size:11.5px}
-  .subject-table .gr{font-weight:700}
-  .subject-table .gr.fail{color:var(--danger)}
-  .modal-close-btn{width:100%;margin-top:15px;padding:13px;background:var(--primary);color:#fff;border:none;border-radius:12px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:inherit;transition:background .15s}
-  .modal-close-btn:active{background:var(--primary-d)}
+/* Grade badge */
+.st-card .grade-badge{width:44px;height:44px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;color:#fff;font-size:13px;line-height:1;box-shadow:0 4px 10px rgba(0,0,0,.12)}
+.st-card .grade-badge span:first-child{font-size:15px}
+.st-card .grade-badge span:last-child{font-size:8px;opacity:.9;font-weight:600;margin-top:1px;letter-spacing:.3px}
+.st-card.g-aplus .grade-badge{background:linear-gradient(135deg,#059669,#10b981)}
+.st-card.g-a .grade-badge{background:linear-gradient(135deg,#0d9488,#14b8a6)}
+.st-card.g-aminus .grade-badge{background:linear-gradient(135deg,#0891b2,#06b6d4)}
+.st-card.g-b .grade-badge{background:linear-gradient(135deg,#d97706,#f59e0b)}
+.st-card.g-c .grade-badge{background:linear-gradient(135deg,#ea580c,#f97316)}
+.st-card.g-d .grade-badge{background:linear-gradient(135deg,#dc2626,#ef4444)}
+.st-card.g-f .grade-badge{background:linear-gradient(135deg,#7f1d1d,#991b1b)}
 
-  /* ============== TOAST ============== */
-  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--text);color:var(--card);padding:11px 18px;border-radius:22px;font-size:12.5px;font-weight:600;box-shadow:var(--shadow-l);z-index:2000;opacity:0;transition:all .3s cubic-bezier(.4,0,.2,1);pointer-events:none;max-width:90vw;text-align:center}
-  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* FULL RESULT */
+.full-hd{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;padding:calc(10px + var(--safe-t)) 14px 12px;display:flex;align-items:center;gap:10px;box-shadow:0 4px 12px rgba(13,92,99,.25);flex-shrink:0}
+.full-hd .back-btn{background:rgba(255,255,255,.2);color:#fff}
+.full-hd .back-btn:active{background:rgba(255,255,255,.35)}
+.full-hd-t{flex:1;min-width:0}
+.full-hd-t h2{font-size:16px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.full-hd-t p{font-size:11px;opacity:.85;margin-top:2px}
 
-  /* ============== SCROLL TOP ============== */
-  .scroll-top{position:fixed;bottom:18px;right:14px;width:44px;height:44px;background:var(--primary);color:#fff;border:none;border-radius:50%;font-size:18px;box-shadow:var(--shadow-l);cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(15px);transition:all .25s;z-index:90;pointer-events:none;font-family:inherit}
-  .scroll-top.show{opacity:1;transform:translateY(0);pointer-events:auto}
-  .scroll-top:active{transform:scale(.9)}
+.full-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px 12px calc(90px + var(--safe-b))}
 
-  /* ============== INITIAL BLANK ============== */
-  #blankState{display:none}
+/* REPORT CARD */
+.rc{background:var(--card);border-radius:18px;box-shadow:var(--sh-l);overflow:hidden;border:1px solid var(--border)}
+.rc-top{color:#fff;padding:20px 18px;text-align:center;position:relative;overflow:hidden}
+.rc.g-aplus .rc-top{background:linear-gradient(135deg,#047857,#10b981)}
+.rc.g-a .rc-top{background:linear-gradient(135deg,#0d5c63,#14b8a6)}
+.rc.g-aminus .rc-top{background:linear-gradient(135deg,#0e7490,#06b6d4)}
+.rc.g-b .rc-top{background:linear-gradient(135deg,#b45309,#f59e0b)}
+.rc.g-c .rc-top{background:linear-gradient(135deg,#c2410c,#f97316)}
+.rc.g-d .rc-top{background:linear-gradient(135deg,#b91c1c,#ef4444)}
+.rc.g-f .rc-top{background:linear-gradient(135deg,#7f1d1d,#991b1b)}
+
+.rc-top::before{content:'';position:absolute;top:-50%;right:-30%;width:200px;height:200px;background:rgba(255,255,255,.08);border-radius:50%}
+.rc-top::after{content:'';position:absolute;bottom:-60%;left:-20%;width:180px;height:180px;background:rgba(255,255,255,.06);border-radius:50%}
+.rc-logo{width:52px;height:52px;background:rgba(255,255,255,.22);border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 10px;position:relative;z-index:1;backdrop-filter:blur(6px)}
+.rc-school{font-size:17px;font-weight:700;margin-bottom:3px;position:relative;z-index:1}
+.rc-addr{font-size:11.5px;opacity:.85;margin-bottom:10px;position:relative;z-index:1}
+.rc-badge{display:inline-block;background:rgba(255,255,255,.22);padding:5px 14px;border-radius:18px;font-size:11.5px;font-weight:600;position:relative;z-index:1;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.15)}
+
+.rc-info{padding:18px;border-bottom:2px dashed var(--border)}
+.rc-name{font-size:20px;font-weight:700;text-align:center;margin-bottom:4px;line-height:1.25}
+.rc-name-en{text-align:center;font-size:12.5px;color:var(--dim);font-weight:500;letter-spacing:.4px;margin-bottom:6px}
+.rc-cls{text-align:center;font-size:12px;color:var(--dim);margin-bottom:14px}
+.rc-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}
+.rc-stat{border-radius:12px;padding:10px 6px;text-align:center;background:var(--bg)}
+.rc-stat-l{font-size:10px;color:var(--dim);font-weight:600;margin-bottom:4px;text-transform:uppercase;letter-spacing:.4px}
+.rc-stat-v{font-size:16px;font-weight:800}
+
+.rc-sub-h{padding:14px 18px 8px;font-size:13.5px;font-weight:700;display:flex;align-items:center;gap:7px}
+.rc-sub-h::before{content:'';width:3px;height:14px;background:var(--brand);border-radius:2px}
+.rc-table-wrap{margin:0 14px 14px;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+.rc-table{width:100%;border-collapse:collapse;font-size:12.5px}
+.rc-table thead{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff}
+.rc-table th{padding:10px 6px;font-weight:600;text-align:center;font-size:11.5px}
+.rc-table th:first-child{text-align:left;padding-left:12px}
+.rc-table td{padding:10px 6px;text-align:center;border-bottom:1px solid var(--border);font-weight:500}
+.rc-table td:first-child{text-align:left;padding-left:12px;font-weight:600}
+.rc-table tr:last-child td{border-bottom:none}
+.rc-table tbody tr:nth-child(even){background:var(--bg)}
+.rc-table .mk{font-weight:700}
+.rc-table .mk.f{color:var(--danger)}
+.rc-table .fm{color:var(--dim);font-size:11px}
+.rc-table .gr{font-weight:700}
+.rc-table .gr.f{color:var(--danger)}
+.rc-table .gr.a-p{color:#047857}
+.rc-table .gr.a{color:#0d9488}
+.rc-table .gr.a-m{color:#0891b2}
+.rc-total{margin:0 14px 14px;border-radius:12px;padding:14px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,rgba(13,92,99,.08),rgba(13,148,136,.08));border:1px solid rgba(13,92,99,.15)}
+.rc-total-l{font-size:12.5px;color:var(--dim);font-weight:600}
+.rc-total-v{font-size:17px;font-weight:800;color:var(--brand)}
+
+.rc-grade{color:#fff;margin:0 14px 16px;border-radius:14px;padding:18px;text-align:center;position:relative;overflow:hidden}
+.rc.g-aplus .rc-grade{background:linear-gradient(135deg,#059669,#10b981)}
+.rc.g-a .rc-grade{background:linear-gradient(135deg,#0d5c63,#14b8a6)}
+.rc.g-aminus .rc-grade{background:linear-gradient(135deg,#0e7490,#06b6d4)}
+.rc.g-b .rc-grade{background:linear-gradient(135deg,#b45309,#f59e0b)}
+.rc.g-c .rc-grade{background:linear-gradient(135deg,#c2410c,#f97316)}
+.rc.g-d .rc-grade{background:linear-gradient(135deg,#b91c1c,#ef4444)}
+.rc.g-f .rc-grade{background:linear-gradient(135deg,#7f1d1d,#991b1b)}
+.rc-grade::before{content:'';position:absolute;top:-40%;right:-20%;width:160px;height:160px;background:rgba(255,255,255,.1);border-radius:50%}
+.rc-grade-l{font-size:11.5px;opacity:.9;margin-bottom:8px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;position:relative;z-index:1}
+.rc-grade-big{font-size:42px;font-weight:800;line-height:1;margin-bottom:8px;position:relative;z-index:1}
+.rc-grade-gpa{font-size:13px;opacity:.95;position:relative;z-index:1}
+.rc-note{padding:0 18px 16px;text-align:center;font-size:10.5px;color:var(--dim);line-height:1.6}
+
+/* ACTION BAR */
+.act-bar{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--border);padding:11px 14px calc(11px + var(--safe-b));display:flex;gap:9px;z-index:10;box-shadow:0 -4px 12px rgba(0,0,0,.06)}
+.act-btn{flex:1;padding:13px;border:none;border-radius:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:6px;transition:all .15s}
+.act-btn.p{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 4px 12px rgba(13,92,99,.25)}
+.act-btn.p:active{transform:scale(.97)}
+.act-btn.s{background:var(--bg);color:var(--text);border:1.5px solid var(--border)}
+.act-btn.s:active{background:var(--border)}
+
+/* TOAST */
+.toast{position:fixed;bottom:calc(20px + var(--safe-b));left:50%;transform:translateX(-50%) translateY(120px);background:var(--text);color:var(--card);padding:12px 20px;border-radius:22px;font-size:13px;font-weight:600;box-shadow:var(--sh-l);z-index:3000;opacity:0;transition:all .3s cubic-bezier(.4,0,.2,1);pointer-events:none;max-width:90vw;text-align:center}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* LOADING */
+.loading{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:4000;display:none;align-items:center;justify-content:center;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.loading.on{display:flex}
+.loading-box{background:var(--card);padding:24px 28px;border-radius:18px;text-align:center;box-shadow:var(--sh-l)}
+.spinner{width:44px;height:44px;border:4px solid var(--border);border-top-color:var(--brand);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 12px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-tx{font-size:14px;font-weight:700}
 </style>
 </head>
 <body data-theme="light">
 
-<!-- ============ HEADER ============ -->
-<header class="app-header">
-  <div class="header-top">
-    <div class="brand">
-      <div class="brand-logo">🎓</div>
-      <div class="brand-text">
-        <h1>ফলাফল ২০২৬</h1>
-        <p>দারুল হিকমাহ মডেল মাদরাসা</p>
-      </div>
+<!-- ═══════ SCREEN 1: WELCOME ═══════ -->
+<div class="screen on" id="s1">
+  <div class="body">
+    <div class="welcome">
+      <div class="w-ic">🎓</div>
+      <div class="w-title">স্বাগতম</div>
+      <div class="w-sub">দারুল হিকমাহ মডেল মাদরাসা</div>
+      <div class="w-desc">৩য় সেমিস্টার পরীক্ষার ফলাফল ২০২৬ দেখতে এগিয়ে যান</div>
+      <button class="w-btn" id="startBtn" type="button">শুরু করুন <span>→</span></button>
+      <div class="w-foot">© ২০২৬ দারুল হিকমাহ মডেল মাদরাসা</div>
     </div>
-    <button class="theme-toggle" id="themeToggle" type="button" aria-label="থিম">🌙</button>
   </div>
-
-  <div class="search-wrap">
-    <div class="search-box" id="searchBox">
-      <span class="icon">🔎</span>
-      <input type="text" id="searchInput" placeholder="শিক্ষার্থীর নাম লিখুন..." autocomplete="off" spellcheck="false" inputmode="search" enterkeyhint="search">
-      <button class="btn-ic" id="btnClear" type="button" aria-label="মুছুন">✕</button>
-      <button class="btn-ic" id="btnVoice" type="button" aria-label="ভয়েস">🎤</button>
-    </div>
-    <div class="autocomplete" id="autocomplete"></div>
-  </div>
-
-  <div class="filters" id="filters">
-    <button class="chip active" data-filter="all" type="button">সব</button>
-    <button class="chip" data-filter="play" type="button">প্লে</button>
-    <button class="chip" data-filter="nursery" type="button">নার্সারি</button>
-    <button class="chip" data-filter="1" type="button">১ম</button>
-    <button class="chip" data-filter="2" type="button">২য়</button>
-    <button class="chip" data-filter="3" type="button">৩য়</button>
-    <button class="chip" data-filter="4" type="button">৪র্থ</button>
-    <button class="chip" data-filter="5" type="button">৫ম</button>
-    <button class="chip" data-filter="6" type="button">৬ষ্ঠ</button>
-  </div>
-</header>
-
-<div class="sort-bar" id="sortBar">
-  <span id="resultMeta">ফলাফল</span>
-  <select id="sortSelect">
-    <option value="relevance">প্রাসঙ্গিক</option>
-    <option value="rank">মেধাস্থান</option>
-    <option value="marks">সর্বোচ্চ নম্বর</option>
-    <option value="az">নাম (ক→হ)</option>
-    <option value="za">নাম (হ→ক)</option>
-  </select>
 </div>
 
-<main id="main">
-  <!-- সম্পূর্ণ খালি প্রাথমিক স্ক্রিন -->
-  <div id="blankState"></div>
-
-  <div class="recent-block" id="recentBlock" style="display:none">
-    <div class="recent-head">
-      <span>🕘 সাম্প্রতিক</span>
-      <button id="clearHistory" type="button">মুছুন</button>
+<!-- ═══════ SCREEN 2: CLASS SELECT ═══════ -->
+<div class="screen slide" id="s2">
+  <div class="body" style="padding-top:calc(24px + var(--safe-t))">
+    <div class="sel-hd">
+      <div class="sel-hd-ic">📚</div>
+      <div class="sel-hd-t">আপনি যার রেজাল্ট দেখতে চান তার শ্রেণি সিলেক্ট করুন</div>
+      <div class="sel-hd-s">নিচ থেকে একটি শ্রেণি বেছে নিন</div>
     </div>
-    <div class="recent-chips" id="recentChips"></div>
+    <div class="class-grid">
+      <button class="class-btn" data-cls="play" type="button"><span class="ic">🧸</span><span class="nm">প্লে</span><span class="en">Play</span></button>
+      <button class="class-btn" data-cls="nursery" type="button"><span class="ic">🌱</span><span class="nm">নার্সারি</span><span class="en">Nursery</span></button>
+      <button class="class-btn" data-cls="1" type="button"><span class="ic">1️⃣</span><span class="nm">১ম শ্রেণি</span><span class="en">Class One</span></button>
+      <button class="class-btn" data-cls="2" type="button"><span class="ic">2️⃣</span><span class="nm">২য় শ্রেণি</span><span class="en">Class Two</span></button>
+      <button class="class-btn" data-cls="3" type="button"><span class="ic">3️⃣</span><span class="nm">৩য় শ্রেণি</span><span class="en">Class Three</span></button>
+      <button class="class-btn" data-cls="4" type="button"><span class="ic">4️⃣</span><span class="nm">৪র্থ শ্রেণি</span><span class="en">Class Four</span></button>
+      <button class="class-btn" data-cls="5" type="button"><span class="ic">5️⃣</span><span class="nm">৫ম শ্রেণি</span><span class="en">Class Five</span></button>
+      <button class="class-btn" data-cls="6" type="button"><span class="ic">6️⃣</span><span class="nm">৬ষ্ঠ শ্রেণি</span><span class="en">Class Six</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ SCREEN 3: SEARCH + LIST ═══════ -->
+<div class="screen slide" id="s3">
+  <div class="search-hd">
+    <div class="search-hd-top">
+      <button class="back-btn" id="s3Back" type="button">←</button>
+      <button class="cls-chip" id="clsChip" type="button">
+        <span>📚</span>
+        <span id="clsChipNm">শ্রেণি</span>
+        <span style="font-size:11px;opacity:.85">পরিবর্তন</span>
+      </button>
+      <button class="theme-btn" id="thBtn" type="button">🌙</button>
+    </div>
+    <div class="search-bar" id="sBox">
+      <span class="ic">🔎</span>
+      <input type="text" id="q" placeholder="বাংলা বা ইংরেজি নাম লিখুন..." autocomplete="off" spellcheck="false" inputmode="search">
+      <button class="ib" id="clr" type="button" style="display:none">✕</button>
+    </div>
   </div>
 
-  <div id="resultsArea" style="display:none">
-    <div class="result-list" id="resultList"></div>
-    <button class="load-more" id="loadMore" type="button">আরও দেখুন</button>
+  <div class="res-body" id="resBody">
+    <div class="list-head" id="listHead" style="display:none">
+      <span id="listTitle">সব শিক্ষার্থী</span>
+      <span class="cnt" id="listCount">০</span>
+    </div>
+    <div id="resList"></div>
+    <div class="empty-res" id="emptyRes" style="display:none">
+      <div class="empty-ic">🔍</div>
+      <div class="empty-t">কিছু পাওয়া যায়নি</div>
+      <div class="empty-tx" id="emptyTx">বানান ঠিক আছে কিনা দেখুন</div>
+    </div>
   </div>
+</div>
 
-  <div class="empty-state" id="emptyState" style="display:none">
-    <div class="empty-ic">🔍</div>
-    <div class="empty-title">কিছু পাওয়া যায়নি</div>
-    <div class="empty-tx" id="emptyText">বানান ঠিক আছে কিনা দেখুন</div>
-    <div class="suggestions" id="suggestions"></div>
+<!-- ═══════ SCREEN 4: FULL RESULT ═══════ -->
+<div class="screen slide" id="s4">
+  <div class="full-hd">
+    <button class="back-btn" id="s4Back" type="button">←</button>
+    <div class="full-hd-t">
+      <h2>ফলাফল কার্ড</h2>
+      <p>৩য় সেমিস্টার পরীক্ষা ২০২৬</p>
+    </div>
   </div>
-</main>
+  <div class="full-body" id="fullBody"></div>
+  <div class="act-bar">
+    <button class="act-btn s" id="shareBtn" type="button">📤 ছবি শেয়ার</button>
+    <button class="act-btn p" id="dlBtn" type="button">⬇️ ডাউনলোড</button>
+  </div>
+</div>
 
 <div class="toast" id="toast"></div>
-<button class="scroll-top" id="scrollTop" type="button" aria-label="উপরে">↑</button>
+<div class="loading" id="loading">
+  <div class="loading-box">
+    <div class="spinner"></div>
+    <div class="loading-tx" id="loadingTx">ছবি তৈরি হচ্ছে...</div>
+  </div>
+</div>
 
 <script>
-/* ============================================================
-   1) RAW DATA — সব শ্রেণির শিক্ষার্থী
-   ============================================================ */
-const RAW_DATA = {
+/* ═══════════════════════════════════════════
+   DATA
+   ═══════════════════════════════════════════ */
+const RAW={
   play:[
-    {id:'০১',name:'রাফিয়া',marks:[100,99,99,95,100]},
-    {id:'০২',name:'সাদাত',marks:[75,60,94,59,88]},
-    {id:'০৩',name:'রাকিন',marks:[100,100,100,99,95]},
-    {id:'০৪',name:'ইরফান',marks:[100,96,98,96,99]},
-    {id:'০৫',name:'হুজাইফা',marks:[100,99,99,96,96]},
-    {id:'০৬',name:'আকসা',marks:[100,98,99,99,98]},
-    {id:'০৭',name:'রাইফা',marks:[91,88,85,88,90]},
-    {id:'০৮',name:'সাওদা',marks:[100,100,98,97,99]},
-    {id:'০৯',name:'আব্দুল্লাহ',marks:[100,98,98,84,98]},
-    {id:'১০',name:'ইমাদ',marks:[100,100,100,100,100]},
-    {id:'১১',name:'শায়ান',marks:[100,100,100,100,95]},
-    {id:'১২',name:'মাহির',marks:[100,100,100,99,100]},
-    {id:'১৩',name:'আব্দুল্লাহ রাইয়ান',marks:[100,100,100,100,98]},
-    {id:'১৪',name:'সাদ',marks:[100,100,100,99,95]},
-    {id:'১৫',name:'তাহসিন',marks:[100,96,100,96,98]},
-    {id:'১৬',name:'আরফা',marks:[100,100,100,99,98]},
-    {id:'১৭',name:'সুফাইরা',marks:[100,100,100,89,93]},
-    {id:'১৮',name:'মুবিন',marks:[95,99,100,91,94]},
-    {id:'১৯',name:'সামিউল',marks:[100,99,96,94,98]},
-    {id:'২০',name:'শাফিউল',marks:[100,100,100,94,98]},
-    {id:'২১',name:'হিমু',marks:[100,99,100,94,98]},
-    {id:'২২',name:'মেজবাহ',marks:[100,100,100,100,95]},
-    {id:'২৩',name:'আয়েশা মনি',marks:[92,90,94,77,94]},
-    {id:'২৪',name:'রিহা',marks:[100,100,100,89,100]},
-    {id:'২৫',name:'জুফরা',marks:[95,100,100,100,100]},
-    {id:'২৬',name:'মুত্তাকীন',marks:[100,100,100,93,98]},
-    {id:'২৭',name:'আবু বকর সিদ্দীক',marks:[100,100,100,84,97]},
-    {id:'২৮',name:'আনাস',marks:[100,99,99,96,96]},
-    {id:'২৯',name:'সাব্বির',marks:[100,100,100,99,98]},
-    {id:'৩০',name:'ইয়ামিন',marks:[100,99,99,98,99]},
-    {id:'৩১',name:'ছোয়াদ',marks:[0,0,0,0,0]}
+    {id:'০১',n:'রাফিয়া',en:'Rafia',m:[100,99,99,95,100]},
+    {id:'০২',n:'সাদাত',en:'Sadat',m:[75,60,94,59,88]},
+    {id:'০৩',n:'রাকিন',en:'Rakin',m:[100,100,100,99,95]},
+    {id:'০৪',n:'ইরফান',en:'Irfan',m:[100,96,98,96,99]},
+    {id:'০৫',n:'হুজাইফা',en:'Huzaifa',m:[100,99,99,96,96]},
+    {id:'০৬',n:'আকসা',en:'Aqsa',m:[100,98,99,99,98]},
+    {id:'০৭',n:'রাইফা',en:'Raifa',m:[91,88,85,88,90]},
+    {id:'০৮',n:'সাওদা',en:'Sawda',m:[100,100,98,97,99]},
+    {id:'০৯',n:'আব্দুল্লাহ',en:'Abdullah',m:[100,98,98,84,98]},
+    {id:'১০',n:'ইমাদ',en:'Imad',m:[100,100,100,100,100]},
+    {id:'১১',n:'শায়ান',en:'Shayan',m:[100,100,100,100,95]},
+    {id:'১২',n:'মাহির',en:'Mahir',m:[100,100,100,99,100]},
+    {id:'১৩',n:'আব্দুল্লাহ রাইয়ান',en:'Abdullah Rayan',m:[100,100,100,100,98]},
+    {id:'১৪',n:'সাদ',en:'Saad',m:[100,100,100,99,95]},
+    {id:'১৫',n:'তাহসিন',en:'Tahsin',m:[100,96,100,96,98]},
+    {id:'১৬',n:'আরফা',en:'Arfa',m:[100,100,100,99,98]},
+    {id:'১৭',n:'সুফাইরা',en:'Sufaira',m:[100,100,100,89,93]},
+    {id:'১৮',n:'মুবিন',en:'Mubin',m:[95,99,100,91,94]},
+    {id:'১৯',n:'সামিউল',en:'Samiul',m:[100,99,96,94,98]},
+    {id:'২০',n:'শাফিউল',en:'Shafiul',m:[100,100,100,94,98]},
+    {id:'২১',n:'হিমু',en:'Himu',m:[100,99,100,94,98]},
+    {id:'২২',n:'মেজবাহ',en:'Mezbah',m:[100,100,100,100,95]},
+    {id:'২৩',n:'আয়েশা মনি',en:'Ayesha Moni',m:[92,90,94,77,94]},
+    {id:'২৪',n:'রিহা',en:'Riha',m:[100,100,100,89,100]},
+    {id:'২৫',n:'জুফরা',en:'Zufra',m:[95,100,100,100,100]},
+    {id:'২৬',n:'মুত্তাকীন',en:'Muttaqin',m:[100,100,100,93,98]},
+    {id:'২৭',n:'আবু বকর সিদ্দীক',en:'Abu Bakar Siddique',m:[100,100,100,84,97]},
+    {id:'২৮',n:'আনাস',en:'Anas',m:[100,99,99,96,96]},
+    {id:'২৯',n:'সাব্বির',en:'Sabbir',m:[100,100,100,99,98]},
+    {id:'৩০',n:'ইয়ামিন',en:'Yamin',m:[100,99,99,98,99]},
+    {id:'৩১',n:'ছোয়াদ',en:'Sowad',m:[0,0,0,0,0]}
   ],
   nursery:[
-    {id:'০১',name:'আয়ান ইসলাম',marks:[99,100,100,100,100]},
-    {id:'০২',name:'খাতুনে জান্নাত নাবা',marks:[100,100,100,100,99]},
-    {id:'০৩',name:'হামীম',marks:[100,100,99,100,98]},
-    {id:'০৪',name:'মাইশাতুল জান্নাত',marks:[100,100,100,100,98]},
-    {id:'০৫',name:'ইসরাত জাহান',marks:[100,100,100,100,100]},
-    {id:'০৬',name:'মাহমুদুল হাসান',marks:[100,98,60,66,89]},
-    {id:'০৭',name:'আবরারূল হক নিহান',marks:[98,100,90,97,99]},
-    {id:'০৮',name:'মারুফা আক্তার',marks:[98,100,90,90,99]},
-    {id:'০৯',name:'লাবিব',marks:[94,99,94,99,95]},
-    {id:'১০',name:'মোফাচ্ছেল মিয়া',marks:[93,99,96,99,97]},
-    {id:'১১',name:'তাসকিন আহমেদ সোয়াদ',marks:[88,96,93,94,99]},
-    {id:'১২',name:'মোয়াজ',marks:[96,99,98,98,97]},
-    {id:'১৩',name:'সারওয়া নাওয়ার সাইবা',marks:[98,100,97,94,95]},
-    {id:'১৪',name:'নাবহান',marks:[100,100,100,100,100]},
-    {id:'১৫',name:'সালমান',marks:[88,93,92,80,98]},
-    {id:'১৬',name:'লামিশা',marks:[94,100,98,100,100]},
-    {id:'১৭',name:'জান্নাতুল মাওয়া-১',marks:[100,100,100,98,99]},
-    {id:'১৮',name:'জান্নাতুল মাওয়া-২',marks:[96,96,99,88,90]},
-    {id:'১৯',name:'জান্নাতুল মাসফি',marks:[90,97,99,92,98]},
-    {id:'২০',name:'তায়্যিবা',marks:[98,99,97,91,99]},
-    {id:'২১',name:'ইয়ানা ইসলাম মুন',marks:[100,100,100,98,100]},
-    {id:'২২',name:'ইশান',marks:[100,100,99,100,99]},
-    {id:'২৩',name:'ফাহাদ',marks:[98,99,97,98,98]},
-    {id:'২৪',name:'আ: সোয়াদ',marks:[100,100,100,99,99]},
-    {id:'২৫',name:'হুমাইরা',marks:[100,100,100,100,99]},
-    {id:'২৬',name:'সিদরাতুল মুনতাহা অরিন',marks:[100,100,100,100,100]}
+    {id:'০১',n:'আয়ান ইসলাম',en:'Ayan Islam',m:[99,100,100,100,100]},
+    {id:'০২',n:'খাতুনে জান্নাত নাবা',en:'Khatune Jannat Naba',m:[100,100,100,100,99]},
+    {id:'০৩',n:'হামীম',en:'Hamim',m:[100,100,99,100,98]},
+    {id:'০৪',n:'মাইশাতুল জান্নাত',en:'Maisatul Jannat',m:[100,100,100,100,98]},
+    {id:'০৫',n:'ইসরাত জাহান',en:'Israt Jahan',m:[100,100,100,100,100]},
+    {id:'০৬',n:'মাহমুদুল হাসান',en:'Mahmudul Hasan',m:[100,98,60,66,89]},
+    {id:'০৭',n:'আবরারূল হক নিহান',en:'Abrarul Haque Nihan',m:[98,100,90,97,99]},
+    {id:'০৮',n:'মারুফা আক্তার',en:'Marufa Akter',m:[98,100,90,90,99]},
+    {id:'০৯',n:'লাবিব',en:'Labib',m:[94,99,94,99,95]},
+    {id:'১০',n:'মোফাচ্ছেল মিয়া',en:'Mofassel Mia',m:[93,99,96,99,97]},
+    {id:'১১',n:'তাসকিন আহমেদ সোয়াদ',en:'Taskeen Ahmed Sowad',m:[88,96,93,94,99]},
+    {id:'১২',n:'মোয়াজ',en:'Moaz',m:[96,99,98,98,97]},
+    {id:'১৩',n:'সারওয়া নাওয়ার সাইবা',en:'Sarwa Nawar Saiba',m:[98,100,97,94,95]},
+    {id:'১৪',n:'নাবহান',en:'Nabhan',m:[100,100,100,100,100]},
+    {id:'১৫',n:'সালমান',en:'Salman',m:[88,93,92,80,98]},
+    {id:'১৬',n:'লামিশা',en:'Lamisa',m:[94,100,98,100,100]},
+    {id:'১৭',n:'জান্নাতুল মাওয়া-১',en:'Jannatul Mawa-1',m:[100,100,100,98,99]},
+    {id:'১৮',n:'জান্নাতুল মাওয়া-২',en:'Jannatul Mawa-2',m:[96,96,99,88,90]},
+    {id:'১৯',n:'জান্নাতুল মাসফি',en:'Jannatul Masfi',m:[90,97,99,92,98]},
+    {id:'২০',n:'তায়্যিবা',en:'Tayyiba',m:[98,99,97,91,99]},
+    {id:'২১',n:'ইয়ানা ইসলাম মুন',en:'Yana Islam Mun',m:[100,100,100,98,100]},
+    {id:'২২',n:'ইশান',en:'Ishan',m:[100,100,99,100,99]},
+    {id:'২৩',n:'ফাহাদ',en:'Fahad',m:[98,99,97,98,98]},
+    {id:'২৪',n:'আ: সোয়াদ',en:'A: Sowad',m:[100,100,100,99,99]},
+    {id:'২৫',n:'হুমাইরা',en:'Humaira',m:[100,100,100,100,99]},
+    {id:'২৬',n:'সিদরাতুল মুনতাহা অরিন',en:'Sidratul Muntaha Orin',m:[100,100,100,100,100]}
   ],
   '1':[
-    {id:'০১',name:'জোমাইমা আনাম জারা',marks:[100,95,100,100,100,50,50]},
-    {id:'০২',name:'সাইমা আক্তার',marks:[97,80,98,96,99,50,50]},
-    {id:'০৩',name:'ফুয়াদ শাহরিয়ার রোহান',marks:[97,98,100,98,100,50,50]},
-    {id:'০৪',name:'আল আফিফা ইসলাম শাম্মী',marks:[92,91,91,95,99,50,50]},
-    {id:'০৫',name:'তাসনুভা জাহান লাম',marks:[94,97,100,97,98,50,50]},
-    {id:'০৬',name:'আনাছ মাবরুর হাসান',marks:[97,90,99,98,100,50,50]},
-    {id:'০৭',name:'মাস্তুরা',marks:[98,98,97,76,100,50,50]},
-    {id:'০৮',name:'আদিল মাহমুদ',marks:[88,41,89,75,43,45,36]},
-    {id:'০৯',name:'নূর মুহাম্মদ',marks:[83,52,95,83,80,45,45]},
-    {id:'১০',name:'আফফান',marks:[92,93,99,98,96,45,50]},
-    {id:'১১',name:'মেজবাহ',marks:[84,75,93,94,92,50,50]},
-    {id:'১২',name:'গালিব',marks:[86,40,86,84,90,45,41]},
-    {id:'১৩',name:'অহি',marks:[84,54,92,92,96,40,46]},
-    {id:'১৪',name:'সাফওয়ান আহম্মেদ',marks:[80,78,87,77,72,35,25]},
-    {id:'১৫',name:'আব্দুল্লাহ আল আরাফ',marks:[94,82,98,97,100,50,50]},
-    {id:'১৬',name:'জুনায়েদ তালুকদার',marks:[89,53,89,84,79,49,42]},
-    {id:'১৭',name:'মাহিরা জান্নাত জুঁই',marks:[95,98,100,99,99,50,50]},
-    {id:'১৮',name:'মায়মুনা আক্তার',marks:[76,67,92,78,69,45,49]},
-    {id:'১৯',name:'সাদিকা আক্তার সাবা',marks:[94,87,99,95,95,50,48]},
-    {id:'২০',name:'আয়ান মাহমুদ',marks:[94,76,94,99,89,50,49]},
-    {id:'২১',name:'আব্দুল্লাহ রোমান',marks:[77,81,96,97,85,50,50]},
-    {id:'২২',name:'তাওসিফ',marks:[93,57,97,98,100,50,49]},
-    {id:'২৩',name:'আদিল রহমান জিসান',marks:[88,71,76,60,98,50,48]},
-    {id:'২৪',name:'তানজিম হাসান',marks:[98,85,95,96,98,49,50]},
-    {id:'২৫',name:'মারুয়ান',marks:[97,98,99,98,100,50,50]},
-    {id:'২৬',name:'রোজামনি',marks:[98,92,95,96,100,45,49]}
+    {id:'০১',n:'জোমাইমা আনাম জারা',en:'Jomaima Anam Jara',m:[100,95,100,100,100,50,50]},
+    {id:'০২',n:'সাইমা আক্তার',en:'Saima Akter',m:[97,80,98,96,99,50,50]},
+    {id:'০৩',n:'ফুয়াদ শাহরিয়ার রোহান',en:'Fuad Shahriar Rohan',m:[97,98,100,98,100,50,50]},
+    {id:'০৪',n:'আল আফিফা ইসলাম শাম্মী',en:'Al Afifa Islam Shammi',m:[92,91,91,95,99,50,50]},
+    {id:'০৫',n:'তাসনুভা জাহান লাম',en:'Tasnuva Jahan Lam',m:[94,97,100,97,98,50,50]},
+    {id:'০৬',n:'আনাছ মাবরুর হাসান',en:'Anas Mabroor Hasan',m:[97,90,99,98,100,50,50]},
+    {id:'০৭',n:'মাস্তুরা',en:'Mastura',m:[98,98,97,76,100,50,50]},
+    {id:'০৮',n:'আদিল মাহমুদ',en:'Adil Mahmud',m:[88,41,89,75,43,45,36]},
+    {id:'০৯',n:'নূর মুহাম্মদ',en:'Noor Muhammad',m:[83,52,95,83,80,45,45]},
+    {id:'১০',n:'আফফান',en:'Affan',m:[92,93,99,98,96,45,50]},
+    {id:'১১',n:'মেজবাহ',en:'Mezbah',m:[84,75,93,94,92,50,50]},
+    {id:'১২',n:'গালিব',en:'Galib',m:[86,40,86,84,90,45,41]},
+    {id:'১৩',n:'অহি',en:'Ohi',m:[84,54,92,92,96,40,46]},
+    {id:'১৪',n:'সাফওয়ান আহম্মেদ',en:'Safwan Ahmed',m:[80,78,87,77,72,35,25]},
+    {id:'১৫',n:'আব্দুল্লাহ আল আরাফ',en:'Abdullah Al Araf',m:[94,82,98,97,100,50,50]},
+    {id:'১৬',n:'জুনায়েদ তালুকদার',en:'Junaid Talukder',m:[89,53,89,84,79,49,42]},
+    {id:'১৭',n:'মাহিরা জান্নাত জুঁই',en:'Mahira Jannat Jui',m:[95,98,100,99,99,50,50]},
+    {id:'১৮',n:'মায়মুনা আক্তার',en:'Maymuna Akter',m:[76,67,92,78,69,45,49]},
+    {id:'১৯',n:'সাদিকা আক্তার সাবা',en:'Sadika Akter Saba',m:[94,87,99,95,95,50,48]},
+    {id:'২০',n:'আয়ান মাহমুদ',en:'Ayan Mahmud',m:[94,76,94,99,89,50,49]},
+    {id:'২১',n:'আব্দুল্লাহ রোমান',en:'Abdullah Roman',m:[77,81,96,97,85,50,50]},
+    {id:'২২',n:'তাওসিফ',en:'Tawsif',m:[93,57,97,98,100,50,49]},
+    {id:'২৩',n:'আদিল রহমান জিসান',en:'Adil Rahman Jisan',m:[88,71,76,60,98,50,48]},
+    {id:'২৪',n:'তানজিম হাসান',en:'Tanjim Hasan',m:[98,85,95,96,98,49,50]},
+    {id:'২৫',n:'মারুয়ান',en:'Maruan',m:[97,98,99,98,100,50,50]},
+    {id:'২৬',n:'রোজামনি',en:'Rozamoni',m:[98,92,95,96,100,45,49]}
   ],
   '2':[
-    {id:'০১',name:'সাওদা আফরিন',marks:[100,99,99,100,99,100]},
-    {id:'০২',name:'মোঃ আব্দুল আলিম',marks:[96,98,98,96,92,99]},
-    {id:'০৩',name:'সাদমান সালেহ',marks:[99,97,95,84,96,98]},
-    {id:'০৪',name:'জুনাঈদ হোসেন',marks:[72,83,77,54,92,84]},
-    {id:'০৫',name:'নুহিন বিন মিজান',marks:[90,71,88,90,88,91]},
-    {id:'০৬',name:'আরাফাত',marks:[67,91,64,40,71,48]},
-    {id:'০৭',name:'নাবিলা নূর মারিয়া',marks:[98,97,96,95,99,90]},
-    {id:'০৮',name:'সায়্যিমা জাহান নুন',marks:[94,93,80,88,71,96]},
-    {id:'০৯',name:'সুয়াইব খান',marks:[0,0,0,0,0,0]},
-    {id:'১০',name:'শাহাজাদী মায়রা',marks:[0,0,0,0,0,0]},
-    {id:'১১',name:'ওয়াহিদ হাসান আরিয়ান',marks:[97,98,98,90,89,97]},
-    {id:'১২',name:'জারিফ বিন ফেরদৌস',marks:[98,98,96,98,95,99]},
-    {id:'১৩',name:'আব্দুল্লাহ সাফওয়ান',marks:[97,96,80,86,88,99]},
-    {id:'১৪',name:'কাওসার মাহমুদ',marks:[92,94,77,67,97,91]},
-    {id:'১৫',name:'মাহমুদ হোসাইন রাফিদ',marks:[98,95,85,86,86,97]},
-    {id:'১৬',name:'মোমতাহিনা তৌশি',marks:[88,93,60,86,92,92]},
-    {id:'১৭',name:'ফাতেমা রহমান কায়িসা',marks:[92,97,83,96,90,92]},
-    {id:'১৮',name:'জুনাইদ আল জাহিন',marks:[85,75,93,95,91,91]},
-    {id:'১৯',name:'রাদিত জামান খান',marks:[93,97,93,100,86,100]}
+    {id:'০১',n:'সাওদা আফরিন',en:'Sawda Afrin',m:[100,99,99,100,99,100]},
+    {id:'০২',n:'মোঃ আব্দুল আলিম',en:'Md. Abdul Alim',m:[96,98,98,96,92,99]},
+    {id:'০৩',n:'সাদমান সালেহ',en:'Sadman Saleh',m:[99,97,95,84,96,98]},
+    {id:'০৪',n:'জুনাঈদ হোসেন',en:'Junaid Hossain',m:[72,83,77,54,92,84]},
+    {id:'০৫',n:'নুহিন বিন মিজান',en:'Nuhin Bin Mizan',m:[90,71,88,90,88,91]},
+    {id:'০৬',n:'আরাফাত',en:'Arafat',m:[67,91,64,40,71,48]},
+    {id:'০৭',n:'নাবিলা নূর মারিয়া',en:'Nabila Noor Maria',m:[98,97,96,95,99,90]},
+    {id:'০৮',n:'সায়্যিমা জাহান নুন',en:'Sayma Jahan Nun',m:[94,93,80,88,71,96]},
+    {id:'০৯',n:'সুয়াইব খান',en:'Suayb Khan',m:[0,0,0,0,0,0]},
+    {id:'১০',n:'শাহাজাদী মায়রা',en:'Shahajadi Mayra',m:[0,0,0,0,0,0]},
+    {id:'১১',n:'ওয়াহিদ হাসান আরিয়ান',en:'Wahid Hasan Arian',m:[97,98,98,90,89,97]},
+    {id:'১২',n:'জারিফ বিন ফেরদৌস',en:'Zarif Bin Ferdous',m:[98,98,96,98,95,99]},
+    {id:'১৩',n:'আব্দুল্লাহ সাফওয়ান',en:'Abdullah Safwan',m:[97,96,80,86,88,99]},
+    {id:'১৪',n:'কাওসার মাহমুদ',en:'Kawsar Mahmud',m:[92,94,77,67,97,91]},
+    {id:'১৫',n:'মাহমুদ হোসাইন রাফিদ',en:'Mahmud Hossain Rafid',m:[98,95,85,86,86,97]},
+    {id:'১৬',n:'মোমতাহিনা তৌশি',en:'Momtahina Toushi',m:[88,93,60,86,92,92]},
+    {id:'১৭',n:'ফাতেমা রহমান কায়িসা',en:'Fatema Rahman Kaisa',m:[92,97,83,96,90,92]},
+    {id:'১৮',n:'জুনাইদ আল জাহিন',en:'Junaid Al Zahin',m:[85,75,93,95,91,91]},
+    {id:'১৯',n:'রাদিত জামান খান',en:'Radit Zaman Khan',m:[93,97,93,100,86,100]}
   ],
   '3':[
-    {id:'০১',name:'হুসাইন আহম্মেদ',marks:[99,95,98,95,98,100,98,99,100]},
-    {id:'০২',name:'আরাফ চৌধুরী',marks:[93,93,87,94,95,100,94,95,99]},
-    {id:'০৩',name:'নাফিসা মুমতাহিনা',marks:[88,98,87,90,90,59,91,97,96]},
-    {id:'০৪',name:'আদনান আকন্দ',marks:[70,77,50,62,90,68,81,87,85]},
-    {id:'০৫',name:'ইফফাত জাহান আয়শা',marks:[72,84,87,88,75,67,88,98,96]},
-    {id:'০৬',name:'শাহরিয়ার আহম্মেদ',marks:[45,33,7,50,12,33,43,80,46]},
-    {id:'০৭',name:'জান্নাতুল ফেরদৌস',marks:[62,48,0,40,16,33,52,68,0]},
-    {id:'০৮',name:'ইশিতা জাহান জারা',marks:[73,63,52,62,50,33,73,89,93]},
-    {id:'০৯',name:'হুমাইরা জান্নাত জেনি',marks:[64,51,42,35,33,33,71,70,66]},
-    {id:'১০',name:'আইমান সাদিক',marks:[71,74,76,88,94,87,94,86,97]},
-    {id:'১১',name:'আরিজাল জান্নাহ সারামনি',marks:[89,80,78,82,85,50,73,80,82]},
-    {id:'১২',name:'উমর ফারুখ',marks:[68,67,48,83,50,33,64,83,87]},
-    {id:'১৩',name:'ফাইজ আদনান রিদ',marks:[54,33,13,18,10,33,34,25,39]},
-    {id:'১৪',name:'আলিফ আব্দুল্লাহ সোয়াদ',marks:[57,67,42,72,46,51,66,81,88]},
-    {id:'১৫',name:'সাজিদ হাসান',marks:[74,42,52,70,55,58,71,87,78]},
-    {id:'১৬',name:'বরকত উল্লাহ',marks:[59,37,13,44,6,67,35,77,77]}
+    {id:'০১',n:'হুসাইন আহম্মেদ',en:'Husain Ahmed',m:[99,95,98,95,98,100,98,99,100]},
+    {id:'০২',n:'আরাফ চৌধুরী',en:'Araf Chowdhury',m:[93,93,87,94,95,100,94,95,99]},
+    {id:'০৩',n:'নাফিসা মুমতাহিনা',en:'Nafisa Mumtahina',m:[88,98,87,90,90,59,91,97,96]},
+    {id:'০৪',n:'আদনান আকন্দ',en:'Adnan Akondo',m:[70,77,50,62,90,68,81,87,85]},
+    {id:'০৫',n:'ইফফাত জাহান আয়শা',en:'Iffat Jahan Ayesha',m:[72,84,87,88,75,67,88,98,96]},
+    {id:'০৬',n:'শাহরিয়ার আহম্মেদ',en:'Shahriar Ahmed',m:[45,33,7,50,12,33,43,80,46]},
+    {id:'০৭',n:'জান্নাতুল ফেরদৌস',en:'Jannatul Ferdous',m:[62,48,0,40,16,33,52,68,0]},
+    {id:'০৮',n:'ইশিতা জাহান জারা',en:'Ishita Jahan Jara',m:[73,63,52,62,50,33,73,89,93]},
+    {id:'০৯',n:'হুমাইরা জান্নাত জেনি',en:'Humaira Jannat Jeny',m:[64,51,42,35,33,33,71,70,66]},
+    {id:'১০',n:'আইমান সাদিক',en:'Aiman Sadik',m:[71,74,76,88,94,87,94,86,97]},
+    {id:'১১',n:'আরিজাল জান্নাহ সারামনি',en:'Arijal Jannah Saramoni',m:[89,80,78,82,85,50,73,80,82]},
+    {id:'১২',n:'উমর ফারুখ',en:'Umar Farukh',m:[68,67,48,83,50,33,64,83,87]},
+    {id:'১৩',n:'ফাইজ আদনান রিদ',en:'Faiz Adnan Rid',m:[54,33,13,18,10,33,34,25,39]},
+    {id:'১৪',n:'আলিফ আব্দুল্লাহ সোয়াদ',en:'Alif Abdullah Sowad',m:[57,67,42,72,46,51,66,81,88]},
+    {id:'১৫',n:'সাজিদ হাসান',en:'Sajid Hasan',m:[74,42,52,70,55,58,71,87,78]},
+    {id:'১৬',n:'বরকত উল্লাহ',en:'Barakatullah',m:[59,37,13,44,6,67,35,77,77]}
   ],
   '4':[
-    {id:'০১',name:'তাওহিদ',marks:[60,80,25,54,63,33,75,50,33,47,51,76]},
-    {id:'০২',name:'শাজনীন',marks:[77,86,80,52,83,66,84,60,40,49,84,95]},
-    {id:'০৩',name:'রওনক জাহান',marks:[57,84,33,33,62,33,63,60,39,45,60,85]},
-    {id:'০৪',name:'মাইমুনা',marks:[82,88,64,58,73,56,57,80,34,46,82,80]},
-    {id:'০৫',name:'ইষামনি',marks:[54,75,65,69,57,33,70,48,23,41,57,41]},
-    {id:'০৬',name:'হুমাইরা বিনতে হাসান',marks:[96,95,86,95,93,93,92,87,41,49,95,90]},
-    {id:'০৭',name:'দোহা আল বাকি',marks:[0,0,0,0,0,0,0,0,0,0,0,0]},
-    {id:'০৮',name:'আ: আল মিহরান',marks:[93,94,90,88,94,91,88,90,48,50,97,97]},
-    {id:'০৯',name:'রাওফুল ইসলাম',marks:[91,90,83,83,81,80,90,87,42,49,92,92]},
-    {id:'১০',name:'আফরা আনজুম নোহা',marks:[91,94,91,94,90,85,81,80,47,49,91,93]},
-    {id:'১১',name:'ফাতেমা ইসলাম',marks:[58,88,53,33,63,33,63,68,38,46,59,76]},
-    {id:'১২',name:'মোজাম্মেল হক',marks:[97,87,60,73,78,75,91,84,43,43,85,90]},
-    {id:'১৩',name:'জারিফ আব্দুল্লাহ',marks:[72,85,50,57,58,40,82,53,34,38,60,77]},
-    {id:'১৪',name:'মাহাবী আফসার',marks:[95,92,90,88,95,97,90,73,41,49,87,90]},
-    {id:'১৫',name:'রাইয়ান আল সাদী',marks:[54,75,17,43,60,36,50,57,20,38,44,65]},
-    {id:'১৬',name:'জাবির রহমান',marks:[73,84,48,69,58,43,64,63,26,36,67,70]},
-    {id:'১৭',name:'তাহসিনা মিমি',marks:[94,89,97,99,93,93,88,90,42,50,97,87]},
-    {id:'১৮',name:'সাওদা ইসলাম',marks:[88,88,63,48,82,46,81,71,33,49,84,78]},
-    {id:'১৯',name:'আফিফা ইবনাত রুফাইদা',marks:[64,87,34,0,62,57,74,50,27,44,57,41]},
-    {id:'২০',name:'জিহাদ',marks:[60,92,36,44,70,36,60,33,27,45,44,52]}
+    {id:'০১',n:'তাওহিদ',en:'Tawhid',m:[60,80,25,54,63,33,75,50,33,47,51,76]},
+    {id:'০২',n:'শাজনীন',en:'Shajnin',m:[77,86,80,52,83,66,84,60,40,49,84,95]},
+    {id:'০৩',n:'রওনক জাহান',en:'Rownak Jahan',m:[57,84,33,33,62,33,63,60,39,45,60,85]},
+    {id:'০৪',n:'মাইমুনা',en:'Maimuna',m:[82,88,64,58,73,56,57,80,34,46,82,80]},
+    {id:'০৫',n:'ইষামনি',en:'Ishamoni',m:[54,75,65,69,57,33,70,48,23,41,57,41]},
+    {id:'০৬',n:'হুমাইরা বিনতে হাসান',en:'Humaira Binte Hasan',m:[96,95,86,95,93,93,92,87,41,49,95,90]},
+    {id:'০৭',n:'দোহা আল বাকি',en:'Doha Al Baki',m:[0,0,0,0,0,0,0,0,0,0,0,0]},
+    {id:'০৮',n:'আ: আল মিহরান',en:'A: Al Mihran',m:[93,94,90,88,94,91,88,90,48,50,97,97]},
+    {id:'০৯',n:'রাওফুল ইসলাম',en:'Rauf ul Islam',m:[91,90,83,83,81,80,90,87,42,49,92,92]},
+    {id:'১০',n:'আফরা আনজুম নোহা',en:'Afra Anjum Noha',m:[91,94,91,94,90,85,81,80,47,49,91,93]},
+    {id:'১১',n:'ফাতেমা ইসলাম',en:'Fatema Islam',m:[58,88,53,33,63,33,63,68,38,46,59,76]},
+    {id:'১২',n:'মোজাম্মেল হক',en:'Mozammel Haque',m:[97,87,60,73,78,75,91,84,43,43,85,90]},
+    {id:'১৩',n:'জারিফ আব্দুল্লাহ',en:'Zarif Abdullah',m:[72,85,50,57,58,40,82,53,34,38,60,77]},
+    {id:'১৪',n:'মাহাবী আফসার',en:'Mahabi Afsar',m:[95,92,90,88,95,97,90,73,41,49,87,90]},
+    {id:'১৫',n:'রাইয়ান আল সাদী',en:'Rayan Al Sadi',m:[54,75,17,43,60,36,50,57,20,38,44,65]},
+    {id:'১৬',n:'জাবির রহমান',en:'Jabir Rahman',m:[73,84,48,69,58,43,64,63,26,36,67,70]},
+    {id:'১৭',n:'তাহসিনা মিমি',en:'Tahsina Mimi',m:[94,89,97,99,93,93,88,90,42,50,97,87]},
+    {id:'১৮',n:'সাওদা ইসলাম',en:'Sawda Islam',m:[88,88,63,48,82,46,81,71,33,49,84,78]},
+    {id:'১৯',n:'আফিফা ইবনাত রুফাইদা',en:'Afifa Ibnat Rufaida',m:[64,87,34,0,62,57,74,50,27,44,57,41]},
+    {id:'২০',n:'জিহাদ',en:'Jihad',m:[60,92,36,44,70,36,60,33,27,45,44,52]}
   ],
   '5':[
-    {id:'০১',name:'শোয়াইব আল আদিব',marks:[87,94,43,40,48,35]},
-    {id:'০২',name:'হুমাইরা আফরিন মাইশা',marks:[79,86,42,33,45,38.5]},
-    {id:'০৩',name:'তায়্যিবা জামান',marks:[90,91,40,42,54,36]},
-    {id:'০৪',name:'মুশফিকা রুশদা',marks:[0,69,0,0,16,33]},
-    {id:'০৫',name:'আবু সাইফ রাহাত',marks:[80,82,40,26,48,32.5]},
-    {id:'০৬',name:'তাজরিন মায়াম',marks:[0,0,0,0,0,0]},
-    {id:'০৭',name:'আঃ আল ফুয়াদ',marks:[70,73,36,24,48,29]},
-    {id:'০৮',name:'সিফাত খান',marks:[75,66,33,26,41,33]},
-    {id:'০৯',name:'মারিয়া জান্নাত',marks:[93,90,46,50,57,37]},
-    {id:'১০',name:'নাজমুল হাসান',marks:[87,54,40,24,42,37]},
-    {id:'১১',name:'কাশসাফ আলী নাফি',marks:[81,92,44,25,51,32]},
-    {id:'১২',name:'জিন্নাত ফেরদৌস নোহা',marks:[72,81,43,33,56,32.5]},
-    {id:'১৩',name:'দিয়াম আদনান সাইফ',marks:[52,40,31,27,50,22]},
-    {id:'১৪',name:'সামিহা তানহা',marks:[77,88,42,32,51,35.5]},
-    {id:'১৫',name:'তাসফিয়া তাবাস্সুম মৌমী',marks:[58,63,40,22,16,24]},
-    {id:'১৬',name:'মাহমুদুর রহমান',marks:[54,51,40,17,31,31]}
+    {id:'০১',n:'শোয়াইব আল আদিব',en:'Showaib Al Adib',m:[87,94,43,40,48,35]},
+    {id:'০২',n:'হুমাইরা আফরিন মাইশা',en:'Humaira Afrin Maisha',m:[79,86,42,33,45,38.5]},
+    {id:'০৩',n:'তায়্যিবা জামান',en:'Tayyiba Zaman',m:[90,91,40,42,54,36]},
+    {id:'০৪',n:'মুশফিকা রুশদা',en:'Mushfika Rushda',m:[0,69,0,0,16,33]},
+    {id:'০৫',n:'আবু সাইফ রাহাত',en:'Abu Saif Rahat',m:[80,82,40,26,48,32.5]},
+    {id:'০৬',n:'তাজরিন মায়াম',en:'Tajrin Mayam',m:[0,0,0,0,0,0]},
+    {id:'০৭',n:'আঃ আল ফুয়াদ',en:'A: Al Fuad',m:[70,73,36,24,48,29]},
+    {id:'০৮',n:'সিফাত খান',en:'Sifat Khan',m:[75,66,33,26,41,33]},
+    {id:'০৯',n:'মারিয়া জান্নাত',en:'Maria Jannat',m:[93,90,46,50,57,37]},
+    {id:'১০',n:'নাজমুল হাসান',en:'Najmul Hasan',m:[87,54,40,24,42,37]},
+    {id:'১১',n:'কাশসাফ আলী নাফি',en:'Kashsaf Ali Nafi',m:[81,92,44,25,51,32]},
+    {id:'১২',n:'জিন্নাত ফেরদৌস নোহা',en:'Jinnat Ferdous Noha',m:[72,81,43,33,56,32.5]},
+    {id:'১৩',n:'দিয়াম আদনান সাইফ',en:'Diyam Adnan Saif',m:[52,40,31,27,50,22]},
+    {id:'১৪',n:'সামিহা তানহা',en:'Samiha Tanha',m:[77,88,42,32,51,35.5]},
+    {id:'১৫',n:'তাসফিয়া তাবাস্সুম মৌমী',en:'Tasfia Tabassum Moumi',m:[58,63,40,22,16,24]},
+    {id:'১৬',n:'মাহমুদুর রহমান',en:'Mahmudur Rahman',m:[54,51,40,17,31,31]}
   ],
   '6':[
-    {id:'০১',name:'নাজমুস সাদাত তাওসিফ',marks:[99,87,89,79,68,43,90,37,81,87,50,29,86]},
-    {id:'০২',name:'তামান্না আক্তার মীম',marks:[82,84,81,78,68,41,63,28,28,75,46,43,79]},
-    {id:'০৩',name:'তাহিয়া রাব্বানী',marks:[92,91,95,74,57,43,60,30,51,71,49,40,73]},
-    {id:'০৪',name:'আলফিন আক্তার',marks:[57,33,60,20,53,33,37,17,17,53,32,25,52]},
-    {id:'০৫',name:'মুহসিনা আরশী',marks:[71,71,73,58,54,37,55,25.5,38,70,45,34,61]}
+    {id:'০১',n:'নাজমুস সাদাত তাওসিফ',en:'Najmus Sadat Tawsif',m:[99,87,89,79,68,43,90,37,81,87,50,29,86]},
+    {id:'০২',n:'তামান্না আক্তার মীম',en:'Tamanna Akter Mim',m:[82,84,81,78,68,41,63,28,28,75,46,43,79]},
+    {id:'০৩',n:'তাহিয়া রাব্বানী',en:'Tahia Rabbany',m:[92,91,95,74,57,43,60,30,51,71,49,40,73]},
+    {id:'০৪',n:'আলফিন আক্তার',en:'Alfin Akter',m:[57,33,60,20,53,33,37,17,17,53,32,25,52]},
+    {id:'০৫',n:'মুহসিনা আরশী',en:'Muhsina Arshi',m:[71,71,73,58,54,37,55,25.5,38,70,45,34,61]}
   ]
 };
 
-/* ============================================================
-   2) SUBJECTS
-   ============================================================ */
-const SUBJECTS = {
+const SUBS={
   play:[['আরবী/কোরআন',100],['বাংলা',100],['ইংরেজী',100],['গণিত',100],['সাঃ জ্ঞান ও ড্রইং',100]],
   nursery:[['কুরআন',100],['বাংলা',100],['ইংরেজী',100],['গণিত',100],['সাঃ জ্ঞান ও ড্রইং',100]],
   '1':[['কুরআন',100],['আরবী',100],['বাংলা',100],['ইংরেজী',100],['গণিত',100],['সাঃ জ্ঞান',50],['কম্পিউটার',50]],
@@ -442,115 +521,679 @@ const SUBJECTS = {
   '6':[['কোরআন',100],['আকাইদ',100],['আরবী ১ম',100],['আরবী ২য়',100],['বাংলা ১ম',100],['বাংলা ২য়',50],['ইংরেজী ১ম',100],['ইংরেজী ২য়',50],['গণিত',100],['বিজ্ঞান',100],['তথ্য প্রযুক্তি',50],['কৃষি',50],['বা ও বি',100]]
 };
 
-const CLASS_NAMES = {play:'প্লে',nursery:'নার্সারি','1':'১ম','2':'২য়','3':'৩য়','4':'৪র্থ','5':'৫ম','6':'৬ষ্ঠ'};
+const CN={play:'প্লে',nursery:'নার্সারি','1':'১ম','2':'২য়','3':'৩য়','4':'৪র্থ','5':'৫ম','6':'৬ষ্ঠ'};
+const BN_DIGITS=['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+function toBn(n){return String(n).split('').map(d=>BN_DIGITS[+d]??d).join('')}
 
-/* ============================================================
-   3) GRADE
-   ============================================================ */
-function calcGrade(m, f){
-  const p = (m/f)*100;
-  if(p>=80)return{p:5.0,g:'A+'};
-  if(p>=70)return{p:4.0,g:'A'};
+/* ═══════════════════════════════════════════
+   GRADE & PROCESS
+   ═══════════════════════════════════════════ */
+function grd(m,f){
+  const p=(m/f)*100;
+  if(p>=80)return{p:5,g:'A+'};
+  if(p>=70)return{p:4,g:'A'};
   if(p>=60)return{p:3.5,g:'A-'};
-  if(p>=50)return{p:3.0,g:'B'};
-  if(p>=40)return{p:2.0,g:'C'};
-  if(p>=33)return{p:1.0,g:'D'};
-  return{p:0.0,g:'F'};
+  if(p>=50)return{p:3,g:'B'};
+  if(p>=40)return{p:2,g:'C'};
+  if(p>=33)return{p:1,g:'D'};
+  return{p:0,g:'F'};
+}
+function gradeClass(lg){
+  if(lg==='A+')return'g-aplus';
+  if(lg==='A')return'g-a';
+  if(lg==='A-')return'g-aminus';
+  if(lg==='B')return'g-b';
+  if(lg==='C')return'g-c';
+  if(lg==='D')return'g-d';
+  return'g-f';
 }
 
-/* ============================================================
-   4) PROCESS WITH DENSE RANKING
-   ============================================================ */
-function processClass(ck){
-  const subs = SUBJECTS[ck];
-  let list = RAW_DATA[ck].map(st=>{
+function process(ck){
+  const s=SUBS[ck];
+  let list=RAW[ck].map(st=>{
     let tot=0,full=0,fail=false,gp=0;
-    st.marks.forEach((m,i)=>{
-      const fm=subs[i][1];
-      tot+=m;full+=fm;
-      const g=calcGrade(m,fm);
-      if(g.g==='F')fail=true;
-      gp+=g.p;
+    st.m.forEach((m,i)=>{
+      const fm=s[i][1];tot+=m;full+=fm;
+      const g=grd(m,fm);if(g.g==='F')fail=true;gp+=g.p;
     });
     let gpa=0,lg='F';
-    if(!fail && tot>0){
-      const avg=gp/st.marks.length;
+    if(!fail&&tot>0){
+      const avg=gp/st.m.length;
       gpa=parseFloat(avg.toFixed(2));
-      if(gpa>=5.0){gpa=5.00;lg='A+'}
-      else if(gpa>=4.0)lg='A';
+      if(gpa>=5){gpa=5;lg='A+'}
+      else if(gpa>=4)lg='A';
       else if(gpa>=3.5)lg='A-';
-      else if(gpa>=3.0)lg='B';
-      else if(gpa>=2.0)lg='C';
-      else if(gpa>=1.0)lg='D';
+      else if(gpa>=3)lg='B';
+      else if(gpa>=2)lg='C';
+      else if(gpa>=1)lg='D';
       else lg='F';
     }
-    return{...st,classKey:ck,className:CLASS_NAMES[ck],subjects:subs,total:tot,totalFull:full,gpa:gpa.toFixed(2),lg,isFail:fail};
+    return{...st,ck,cn:CN[ck],subs:s,tot,tfull:full,gpa:gpa.toFixed(2),lg,fail};
   });
-
   list.sort((a,b)=>{
-    if(a.isFail&&!b.isFail)return 1;
-    if(!a.isFail&&b.isFail)return -1;
+    if(a.fail&&!b.fail)return 1;
+    if(!a.fail&&b.fail)return -1;
     if(parseFloat(b.gpa)!==parseFloat(a.gpa))return parseFloat(b.gpa)-parseFloat(a.gpa);
-    return b.total-a.total;
+    return b.tot-a.tot;
   });
-
-  // DENSE RANKING
-  let curRank=0, prevGpa=null, prevTot=null, count=0;
-  list = list.map(st=>{
-    let rank='—', rankNum=999999;
-    if(!st.isFail && st.total>0){
+  let cur=0,pG=null,pT=null,cnt=0;
+  list=list.map(st=>{
+    let rk='—',rn=999999;
+    if(!st.fail&&st.tot>0){
       const g=parseFloat(st.gpa);
-      if(prevGpa===null || g!==prevGpa || st.total!==prevTot){
-        curRank=count+1;
-      }
-      rank=String(curRank);
-      rankNum=curRank;
-      prevGpa=g;prevTot=st.total;
+      if(pG===null||g!==pG||st.tot!==pT)cur=cnt+1;
+      rk=String(cur);rn=cur;pG=g;pT=st.tot;
     }
-    count++;
-    return{...st,rank,rankNum};
+    cnt++;
+    return{...st,rk,rn};
   });
-
   const rc={};
-  list.forEach(st=>{if(st.rank!=='—')rc[st.rankNum]=(rc[st.rankNum]||0)+1});
-  list = list.map(st=>({...st,sharedRank: st.rank!=='—' && rc[st.rankNum]>1}));
+  list.forEach(st=>{if(st.rk!=='—')rc[st.rn]=(rc[st.rn]||0)+1});
+  list=list.map(st=>({...st,shared:st.rk!=='—'&&rc[st.rn]>1}));
   return list;
 }
 
-/* ============================================================
-   5) INDEX
-   ============================================================ */
-let SEARCH_INDEX=[];
-function buildIndex(){
-  SEARCH_INDEX=[];
-  Object.keys(RAW_DATA).forEach(ck=>{
-    processClass(ck).forEach(st=>{
-      SEARCH_INDEX.push({
-        type:'student',id:ck+'-'+st.id,title:st.name,classKey:ck,
-        className:st.className,rank:st.rank,rankNum:st.rankNum,
-        sharedRank:st.sharedRank,gpa:st.gpa,lg:st.lg,marks:st.total,
-        totalFull:st.totalFull,isFail:st.isFail,subjects:st.subjects,
-        subjectMarks:st.marks,raw:st
-      });
+/* ═══════════════════════════════════════════
+   STATE
+   ═══════════════════════════════════════════ */
+let curCls='';
+let curStudent=null;
+let curData=[];
+let theme=localStorage.getItem('dhm_t')||'light';
+
+const $=id=>document.getElementById(id);
+const q=$('q'),sBox=$('sBox'),clr=$('clr');
+const resList=$('resList'),emptyRes=$('emptyRes'),emptyTx=$('emptyTx');
+const listHead=$('listHead'),listTitle=$('listTitle'),listCount=$('listCount');
+const thBtn=$('thBtn'),clsChip=$('clsChip'),clsChipNm=$('clsChipNm');
+const fullBody=$('fullBody'),loading=$('loading'),toast=$('toast'),loadingTx=$('loadingTx');
+
+/* ═══════════════════════════════════════════
+   NAVIGATION & THEME
+   ═══════════════════════════════════════════ */
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));
+  $(id).classList.add('on');
+  window.scrollTo(0,0);
+}
+function applyTheme(){
+  document.body.setAttribute('data-theme',theme);
+  thBtn.textContent=theme==='dark'?'☀️':'🌙';
+  const m=document.querySelector('meta[name="theme-color"]');
+  if(m)m.setAttribute('content',theme==='dark'?'#0a0f1a':'#0d5c63');
+}
+applyTheme();
+thBtn.addEventListener('click',()=>{
+  theme=theme==='dark'?'light':'dark';
+  localStorage.setItem('dhm_t',theme);
+  applyTheme();
+  showToast(theme==='dark'?'🌙 ডার্ক মোড':'☀️ লাইট মোড');
+});
+
+let toastT;
+function showToast(m){
+  toast.textContent=m;toast.classList.add('on');
+  clearTimeout(toastT);
+  toastT=setTimeout(()=>toast.classList.remove('on'),2000);
+}
+
+$('startBtn').addEventListener('click',()=>showScreen('s2'));
+
+/* ═══════════════════════════════════════════
+   CLASS SELECT → LOAD ALL STUDENTS
+   ═══════════════════════════════════════════ */
+document.querySelectorAll('.class-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    curCls=btn.dataset.cls;
+    clsChipNm.textContent=CN[curCls]+' শ্রেণি';
+    q.value='';
+    clr.style.display='none';
+    curData=process(curCls);
+    listTitle.textContent=CN[curCls]+' শ্রেণির সব শিক্ষার্থী';
+    listCount.textContent=toBn(curData.length)+' জন';
+    listHead.style.display='flex';
+    renderList(curData,'');
+    showScreen('s3');
+  });
+});
+
+$('s3Back').addEventListener('click',()=>{
+  showScreen('s2');
+  setTimeout(()=>{
+    const t=document.querySelector(`.class-btn[data-cls="${curCls}"]`);
+    if(t)t.scrollIntoView({block:'center',behavior:'smooth'});
+  },100);
+});
+clsChip.addEventListener('click',()=>showScreen('s2'));
+$('s4Back').addEventListener('click',()=>showScreen('s3'));
+
+/* ═══════════════════════════════════════════
+   SEARCH — filter the list live
+   ═══════════════════════════════════════════ */
+let dT;
+q.addEventListener('input',e=>{
+  const v=e.target.value.trim();
+  clr.style.display=v.length>0?'flex':'none';
+  clearTimeout(dT);
+  dT=setTimeout(()=>filterList(v),180);
+});
+clr.addEventListener('click',()=>{
+  q.value='';clr.style.display='none';filterList('');
+});
+
+function filterList(qv){
+  if(!qv){
+    listTitle.textContent=CN[curCls]+' শ্রেণির সব শিক্ষার্থী';
+    listCount.textContent=toBn(curData.length)+' জন';
+    renderList(curData,'');
+    return;
+  }
+  const n=nrm(qv);
+  const words=n.split(/\s+/).filter(Boolean);
+  const res=curData.map(it=>{
+    let sc=0;
+    const nnBn=nrm(it.n);
+    const nnEn=nrm(it.en);
+    if(nnBn===n)sc+=100;
+    else if(nnBn.startsWith(n))sc+=85;
+    else if(nnBn.includes(n))sc+=70;
+    if(nnEn===n)sc+=100;
+    else if(nnEn.startsWith(n))sc+=85;
+    else if(nnEn.includes(n))sc+=70;
+    words.forEach(w=>{
+      if(nnBn.includes(w))sc+=18;
+      if(nnEn.includes(w))sc+=18;
     });
+    if(sc===0){
+      const sBn=sim(nnBn,n);
+      const sEn=sim(nnEn,n);
+      const s=Math.max(sBn,sEn);
+      if(s>0.42)sc+=s*40;
+    }
+    return{...it,_s:sc};
+  }).filter(x=>x._s>0);
+  res.sort((a,b)=>b._s-a._s);
+
+  if(!res.length){
+    resList.innerHTML='';
+    emptyRes.style.display='block';
+    emptyTx.textContent='বাংলা বা ইংরেজি নাম ঠিক আছে কিনা দেখুন';
+    listHead.style.display='none';
+    return;
+  }
+  emptyRes.style.display='none';
+  listHead.style.display='flex';
+  listTitle.textContent='সার্চ ফলাফল';
+  listCount.textContent=toBn(res.length)+' জন';
+  renderList(res,qv);
+}
+
+/* ═══════════════════════════════════════════
+   RENDER LIST — premium grade-colored cards
+   ═══════════════════════════════════════════ */
+function renderList(list,qv){
+  resList.innerHTML='';
+  emptyRes.style.display='none';
+  list.forEach((it,i)=>{
+    const c=document.createElement('div');
+    const gc=gradeClass(it.lg);
+    c.className='st-card '+gc;
+    c.style.animationDelay=Math.min(i*22,250)+'ms';
+
+    // Bangla / English highlight
+    const nnBn=nrm(it.n),nnEn=nrm(it.en),qn=nrm(qv||'');
+    const bnHl=qn&&(nnBn.includes(qn)||sim(nnBn,qn)>0.42);
+    const enHl=qn&&(nnEn.includes(qn)||sim(nnEn,qn)>0.42);
+
+    const bnHtml=bnHl?hi(it.n,qv):esc(it.n);
+    const enHtml=enHl?hi(it.en,qv):esc(it.en);
+
+    // Rank display
+    const rankTxt=it.fail?'ফেল':(it.rk+(it.shared?'*':''));
+    const gradeLetter=it.fail?'F':it.lg;
+
+    c.innerHTML=
+      '<div class="strip"></div>'+
+      '<div class="content">'+
+        '<div class="avatar">'+esc(it.n.charAt(0))+'</div>'+
+        '<div class="info">'+
+          '<div class="nm">'+bnHtml+'</div>'+
+          '<div class="en">'+enHtml+'</div>'+
+          '<div class="meta">'+
+            '<span class="tag tag-cls">📚 '+it.cn+'</span>'+
+            '<span class="tag tag-rk">🏆 '+rankTxt+'</span>'+
+            '<span class="tag tag-gpa">GPA '+it.gpa+'</span>'+
+          '</div>'+
+        '</div>'+
+        '<div class="grade-badge">'+
+          '<span>'+gradeLetter+'</span>'+
+          '<span>গ্রেড</span>'+
+        '</div>'+
+      '</div>';
+    c.addEventListener('click',()=>openFullResult(it));
+    resList.appendChild(c);
   });
 }
-buildIndex();
 
-/* ============================================================
-   6) HELPERS
-   ============================================================ */
-function norm(s){return String(s||'').toLowerCase().replace(/[^\w\u0980-\u09FF\s]/g,' ').replace(/\s+/g,' ').trim()}
+/* ═══════════════════════════════════════════
+   OPEN FULL RESULT
+   ═══════════════════════════════════════════ */
+function openFullResult(st){
+  curStudent=st;
+  fullBody.innerHTML=buildReport(st);
+  showScreen('s4');
+}
+
+function buildReport(st){
+  let rows='';
+  st.subs.forEach((s,i)=>{
+    const m=st.m[i];const fm=s[1];
+    const failed=(m/fm)*100<33;
+    const g=grd(m,fm);
+    const gCls=failed?'f':(g.g==='A+'?'a-p':g.g==='A'?'a':g.g==='A-'?'a-m':'');
+    rows+='<tr>'+
+      '<td>'+s[0]+'</td>'+
+      '<td class="mk'+(failed?' f':'')+'">'+toBn(m)+'</td>'+
+      '<td class="fm">'+toBn(fm)+'</td>'+
+      '<td class="gr '+gCls+'">'+g.g+'</td>'+
+    '</tr>';
+  });
+  const pc=((st.tot/st.tfull)*100).toFixed(2);
+  const now=new Date();
+  const date=now.toLocaleDateString('bn-BD',{day:'numeric',month:'long',year:'numeric'});
+  const time=now.toLocaleTimeString('bn-BD',{hour:'2-digit',minute:'2-digit'});
+  const gc=gradeClass(st.lg);
+  const rankTxt=st.fail?'ফেল':(st.rk+(st.shared?' (যুগ্ম)':''));
+
+  return ''+
+    '<div class="rc '+gc+'" id="rc">'+
+      '<div class="rc-top">'+
+        '<div class="rc-logo">🎓</div>'+
+        '<div class="rc-school">দারুল হিকমাহ মডেল মাদরাসা</div>'+
+        '<div class="rc-addr">ফুলপুর, ময়মনসিংহ</div>'+
+        '<div class="rc-badge">৩য় সেমিস্টার পরীক্ষা — ২০২৬</div>'+
+      '</div>'+
+      '<div class="rc-info">'+
+        '<div class="rc-name">'+esc(st.n)+'</div>'+
+        '<div class="rc-name-en">'+esc(st.en)+'</div>'+
+        '<div class="rc-cls">'+st.cn+' শ্রেণি • ক্রমিক: '+toBn(st.id)+'</div>'+
+        '<div class="rc-stats">'+
+          '<div class="rc-stat"><div class="rc-stat-l">মেধাস্থান</div><div class="rc-stat-v">'+rankTxt+'</div></div>'+
+          '<div class="rc-stat"><div class="rc-stat-l">GPA</div><div class="rc-stat-v">'+st.gpa+'</div></div>'+
+          '<div class="rc-stat"><div class="rc-stat-l">গ্রেড</div><div class="rc-stat-v">'+st.lg+'</div></div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="rc-sub-h">বিষয়ভিত্তিক প্রাপ্ত নম্বর</div>'+
+      '<div class="rc-table-wrap">'+
+        '<table class="rc-table">'+
+          '<thead><tr><th>বিষয়</th><th>প্রাপ্ত</th><th>পূর্ণ</th><th>গ্রেড</th></tr></thead>'+
+          '<tbody>'+rows+'</tbody>'+
+        '</table>'+
+      '</div>'+
+      '<div class="rc-total">'+
+        '<span class="rc-total-l">মোট প্রাপ্ত নম্বর</span>'+
+        '<span class="rc-total-v">'+toBn(st.tot)+' / '+toBn(st.tfull)+'</span>'+
+      '</div>'+
+      '<div class="rc-grade">'+
+        '<div class="rc-grade-l">চূড়ান্ত ফলাফল</div>'+
+        '<div class="rc-grade-big">'+st.lg+'</div>'+
+        '<div class="rc-grade-gpa">GPA '+st.gpa+' • '+toBn(pc)+'%</div>'+
+      '</div>'+
+      '<div class="rc-note">'+
+        'ইস্যু: '+date+' • '+time+
+        (st.shared?'<br><span style="color:#f59e0b;font-weight:700">* একই নম্বরের কারণে যুগ্ম মেধাস্থান</span>':'')+
+      '</div>'+
+    '</div>';
+}
+
+/* ═══════════════════════════════════════════
+   CANVAS RENDER — grade-colored
+   ═══════════════════════════════════════════ */
+async function renderCardToCanvas(st){
+  const W=720;
+  const PAD=28;
+  const BG=theme==='dark'?'#111827':'#ffffff';
+  const TEXT=theme==='dark'?'#f1f5f9':'#1a2332';
+  const DIM=theme==='dark'?'#94a3b8':'#64748b';
+  const BORDER=theme==='dark'?'#1f2937':'#e2e8f0';
+  const CARD_BG=theme==='dark'?'#1f2937':'#f1f5f9';
+  const DANGER='#dc2626';
+
+  // Grade colors
+  const gradeColors={
+    'A+':['#047857','#10b981'],
+    'A':['#0d5c63','#14b8a6'],
+    'A-':['#0e7490','#06b6d4'],
+    'B':['#b45309','#f59e0b'],
+    'C':['#c2410c','#f97316'],
+    'D':['#b91c1c','#ef4444'],
+    'F':['#7f1d1d','#991b1b']
+  };
+  const gc=gradeColors[st.lg]||gradeColors['F'];
+
+  const headerH=190;
+  const infoH=210;
+  const subjTitleH=42;
+  const rowH=42;
+  const tableH=44+st.subs.length*rowH+4;
+  const totalH=58;
+  const gradeH=140;
+  const noteH=70;
+  const H=headerH+infoH+subjTitleH+tableH+totalH+gradeH+noteH;
+
+  const canvas=document.createElement('canvas');
+  const scale=2;
+  canvas.width=W*scale;
+  canvas.height=H*scale;
+  const ctx=canvas.getContext('2d');
+  ctx.scale(scale,scale);
+
+  ctx.fillStyle=BG;
+  ctx.fillRect(0,0,W,H);
+
+  // HEADER with grade color
+  const grd1=ctx.createLinearGradient(0,0,W,headerH);
+  grd1.addColorStop(0,gc[0]);
+  grd1.addColorStop(1,gc[1]);
+  ctx.fillStyle=grd1;
+  ctx.fillRect(0,0,W,headerH);
+
+  ctx.fillStyle='rgba(255,255,255,0.08)';
+  ctx.beginPath();ctx.arc(W-40,-40,140,0,Math.PI*2);ctx.fill();
+  ctx.beginPath();ctx.arc(40,headerH+30,120,0,Math.PI*2);ctx.fill();
+
+  ctx.fillStyle='rgba(255,255,255,0.22)';
+  roundRect(ctx,W/2-30,20,60,60,15);ctx.fill();
+  ctx.font='bold 32px "Kalpurush",Arial';
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  ctx.fillStyle='#fff';
+  ctx.fillText('🎓',W/2,50);
+
+  ctx.font='bold 22px "Kalpurush",Arial';
+  ctx.textBaseline='alphabetic';
+  ctx.fillText('দারুল হিকমাহ মডেল মাদরাসা',W/2,108);
+
+  ctx.font='13px "Kalpurush",Arial';
+  ctx.fillStyle='rgba(255,255,255,0.85)';
+  ctx.fillText('ফুলপুর, ময়মনসিংহ',W/2,130);
+
+  const badgeW=250;
+  roundRect(ctx,W/2-badgeW/2,145,badgeW,30,15);
+  ctx.fillStyle='rgba(255,255,255,0.22)';ctx.fill();
+  ctx.fillStyle='#fff';
+  ctx.font='bold 13px "Kalpurush",Arial';
+  ctx.fillText('৩য় সেমিস্টার পরীক্ষা — ২০২৬',W/2,166);
+
+  // INFO
+  let y=headerH+35;
+  ctx.fillStyle=TEXT;
+  ctx.font='bold 25px "Kalpurush",Arial';
+  ctx.textAlign='center';
+  ctx.fillText(st.n,W/2,y+10);
+
+  y+=34;
+  ctx.fillStyle=DIM;
+  ctx.font='600 14px "Kalpurush",Arial';
+  ctx.fillText(st.en,W/2,y+8);
+
+  y+=26;
+  ctx.fillStyle=DIM;
+  ctx.font='13px "Kalpurush",Arial';
+  ctx.fillText(st.cn+' শ্রেণি • ক্রমিক: '+toBn(st.id),W/2,y+8);
+  y+=28;
+
+  // Stats
+  const rankTxt=st.fail?'ফেল':(st.rk+(st.shared?'*':''));
+  const stats=[
+    {l:'মেধাস্থান',v:rankTxt,c:gc[0]},
+    {l:'GPA',v:st.gpa,c:gc[0]},
+    {l:'গ্রেড',v:st.lg,c:gc[0]}
+  ];
+  const sw=(W-PAD*2-16)/3;
+  const sy=y;
+  const sh=72;
+  stats.forEach((s,i)=>{
+    const x=PAD+i*(sw+8);
+    ctx.fillStyle=CARD_BG;
+    roundRect(ctx,x,sy,sw,sh,12);ctx.fill();
+    ctx.fillStyle=DIM;
+    ctx.font='bold 10.5px "Kalpurush",Arial';
+    ctx.textAlign='center';
+    ctx.fillText(s.l.toUpperCase(),x+sw/2,sy+24);
+    ctx.fillStyle=s.c;
+    ctx.font='bold 24px "Kalpurush",Arial';
+    ctx.fillText(s.v,x+sw/2,sy+56);
+  });
+  y=sy+sh+22;
+
+  // dashed
+  ctx.strokeStyle=BORDER;
+  ctx.setLineDash([6,4]);
+  ctx.lineWidth=1.5;
+  ctx.beginPath();ctx.moveTo(PAD,y);ctx.lineTo(W-PAD,y);ctx.stroke();
+  ctx.setLineDash([]);
+  y+=20;
+
+  // SUBJECT TITLE
+  ctx.fillStyle=gc[0];
+  roundRect(ctx,PAD,y-4,4,18,2);ctx.fill();
+  ctx.fillStyle=TEXT;
+  ctx.font='bold 15px "Kalpurush",Arial';
+  ctx.textAlign='left';
+  ctx.fillText('বিষয়ভিত্তিক প্রাপ্ত নম্বর',PAD+16,y+10);
+  y+=32;
+
+  // TABLE
+  const tableX=PAD;
+  const tableW=W-PAD*2;
+  const colW=[tableW*0.5,tableW*0.17,tableW*0.17,tableW*0.16];
+
+  ctx.fillStyle=gc[0];
+  ctx.fillRect(tableX,y,tableW,44);
+  ctx.fillStyle='#fff';
+  ctx.font='bold 12.5px "Kalpurush",Arial';
+  ctx.textAlign='left';
+  ctx.fillText('বিষয়',tableX+14,y+27);
+  ctx.textAlign='center';
+  ctx.fillText('প্রাপ্ত',tableX+colW[0]+colW[1]/2,y+27);
+  ctx.fillText('পূর্ণ',tableX+colW[0]+colW[1]+colW[2]/2,y+27);
+  ctx.fillText('গ্রেড',tableX+colW[0]+colW[1]+colW[2]+colW[3]/2,y+27);
+  y+=44;
+
+  st.subs.forEach((s,i)=>{
+    const m=st.m[i];const fm=s[1];
+    const failed=(m/fm)*100<33;
+    const g=grd(m,fm);
+
+    if(i%2===1){
+      ctx.fillStyle=theme==='dark'?'#0f172a':'#f8fafc';
+      ctx.fillRect(tableX,y,tableW,rowH);
+    }
+    if(failed){
+      ctx.fillStyle='rgba(220,38,38,0.06)';
+      ctx.fillRect(tableX,y,tableW,rowH);
+    }
+
+    ctx.fillStyle=TEXT;
+    ctx.font='600 13px "Kalpurush",Arial';
+    ctx.textAlign='left';
+    ctx.fillText(s[0],tableX+14,y+rowH/2+5);
+
+    ctx.textAlign='center';
+    ctx.fillStyle=failed?DANGER:TEXT;
+    ctx.font='bold 14px "Kalpurush",Arial';
+    ctx.fillText(toBn(m),tableX+colW[0]+colW[1]/2,y+rowH/2+5);
+
+    ctx.fillStyle=DIM;
+    ctx.font='12px "Kalpurush",Arial';
+    ctx.fillText(toBn(fm),tableX+colW[0]+colW[1]+colW[2]/2,y+rowH/2+5);
+
+    let grColor=TEXT;
+    if(failed)grColor=DANGER;
+    else if(g.g==='A+')grColor='#047857';
+    else if(g.g==='A')grColor='#0d9488';
+    else if(g.g==='A-')grColor='#0891b2';
+    ctx.fillStyle=grColor;
+    ctx.font='bold 14px "Kalpurush",Arial';
+    ctx.fillText(g.g,tableX+colW[0]+colW[1]+colW[2]+colW[3]/2,y+rowH/2+5);
+
+    ctx.strokeStyle=BORDER;
+    ctx.lineWidth=1;
+    ctx.beginPath();
+    ctx.moveTo(tableX,y+rowH);ctx.lineTo(tableX+tableW,y+rowH);ctx.stroke();
+    y+=rowH;
+  });
+  y+=20;
+
+  // TOTAL
+  const totH=58;
+  const tg=ctx.createLinearGradient(0,y,0,y+totH);
+  tg.addColorStop(0,'rgba(13,92,99,0.06)');
+  tg.addColorStop(1,'rgba(13,148,136,0.06)');
+  ctx.fillStyle=tg;
+  roundRect(ctx,tableX,y,tableW,totH,12);ctx.fill();
+  ctx.strokeStyle='rgba(13,92,99,0.15)';
+  ctx.lineWidth=1.5;
+  roundRect(ctx,tableX,y,tableW,totH,12);ctx.stroke();
+
+  ctx.fillStyle=DIM;
+  ctx.font='600 13px "Kalpurush",Arial';
+  ctx.textAlign='left';
+  ctx.fillText('মোট প্রাপ্ত নম্বর',tableX+16,y+totH/2+5);
+
+  ctx.fillStyle=gc[0];
+  ctx.font='bold 19px "Kalpurush",Arial';
+  ctx.textAlign='right';
+  ctx.fillText(toBn(st.tot)+' / '+toBn(st.tfull),tableX+tableW-16,y+totH/2+6);
+  y+=totH+18;
+
+  // GRADE BIG
+  const gH=130;
+  const gg=ctx.createLinearGradient(0,y,W,y+gH);
+  gg.addColorStop(0,gc[0]);
+  gg.addColorStop(1,gc[1]);
+  ctx.fillStyle=gg;
+  roundRect(ctx,tableX,y,tableW,gH,12);ctx.fill();
+
+  ctx.fillStyle='rgba(255,255,255,0.1)';
+  ctx.beginPath();ctx.arc(W-40,y+20,110,0,Math.PI*2);ctx.fill();
+
+  ctx.fillStyle='rgba(255,255,255,0.88)';
+  ctx.font='bold 11.5px "Kalpurush",Arial';
+  ctx.textAlign='center';
+  ctx.fillText('চূড়ান্ত ফলাফল',W/2,y+26);
+
+  ctx.fillStyle='#fff';
+  ctx.font='bold 48px "Kalpurush",Arial';
+  ctx.textBaseline='middle';
+  ctx.fillText(st.lg,W/2,y+72);
+
+  ctx.fillStyle='rgba(255,255,255,0.92)';
+  ctx.font='bold 13px "Kalpurush",Arial';
+  ctx.textBaseline='alphabetic';
+  ctx.fillText('GPA '+st.gpa+' • '+toBn(pc)+'%',W/2,y+108);
+  y+=gH+22;
+
+  // NOTE
+  const now=new Date();
+  const date=now.toLocaleDateString('bn-BD',{day:'numeric',month:'long',year:'numeric'});
+  const time=now.toLocaleTimeString('bn-BD',{hour:'2-digit',minute:'2-digit'});
+
+  ctx.fillStyle=DIM;
+  ctx.font='10.5px "Kalpurush",Arial';
+  ctx.textAlign='center';
+  ctx.fillText('ইস্যু: '+date+' • '+time,W/2,y);
+  if(st.shared){
+    ctx.fillStyle='#f59e0b';
+    ctx.font='bold 11px "Kalpurush",Arial';
+    ctx.fillText('* একই নম্বরের কারণে যুগ্ম মেধাস্থান',W/2,y+18);
+  }
+
+  return canvas;
+}
+
+function roundRect(ctx,x,y,w,h,r){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);
+  ctx.arcTo(x+w,y,x+w,y+h,r);
+  ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r);
+  ctx.arcTo(x,y,x+w,y,r);
+  ctx.closePath();
+}
+
+/* ═══════════════════════════════════════════
+   DOWNLOAD IMAGE
+   ═══════════════════════════════════════════ */
+$('dlBtn').addEventListener('click',async()=>{
+  if(!curStudent)return;
+  loadingTx.textContent='ছবি তৈরি হচ্ছে...';
+  loading.classList.add('on');
+  try{
+    const canvas=await renderCardToCanvas(curStudent);
+    const url=canvas.toDataURL('image/png');
+    const a=document.createElement('a');
+    a.href=url;
+    a.download='Result_'+curStudent.en.replace(/\s+/g,'_')+'.png';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    showToast('✅ ছবি ডাউনলোড হয়েছে');
+  }catch(e){
+    console.error(e);
+    showToast('❌ ডাউনলোড ব্যর্থ');
+  }finally{
+    loading.classList.remove('on');
+  }
+});
+
+/* ═══════════════════════════════════════════
+   SHARE IMAGE
+   ═══════════════════════════════════════════ */
+$('shareBtn').addEventListener('click',async()=>{
+  if(!curStudent)return;
+  loadingTx.textContent='শেয়ার প্রস্তুত হচ্ছে...';
+  loading.classList.add('on');
+  try{
+    const canvas=await renderCardToCanvas(curStudent);
+    const blob=await new Promise(res=>canvas.toBlob(res,'image/png'));
+    const file=new File([blob],'Result_'+curStudent.en.replace(/\s+/g,'_')+'.png',{type:'image/png'});
+
+    if(navigator.canShare && navigator.canShare({files:[file]})){
+      await navigator.share({
+        files:[file],
+        title:'ফলাফল ২০২৬',
+        text:'🎓 '+curStudent.n+' — '+curStudent.cn+' শ্রেণি'
+      });
+      showToast('✅ শেয়ার সম্পন্ন');
+    }else{
+      // Fallback: download
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement('a');
+      a.href=url;a.download=file.name;a.click();
+      URL.revokeObjectURL(url);
+      showToast('📥 ছবি ডাউনলোড হয়েছে');
+    }
+  }catch(e){
+    if(e.name!=='AbortError'){
+      console.error(e);
+      showToast('❌ শেয়ার ব্যর্থ');
+    }
+  }finally{
+    loading.classList.remove('on');
+  }
+});
+
+/* ═══════════════════════════════════════════
+   HELPERS
+   ═══════════════════════════════════════════ */
+function nrm(s){return String(s||'').toLowerCase().replace(/[^\w\u0980-\u09FF\s]/g,' ').replace(/\s+/g,' ').trim()}
 function sim(a,b){
-  if(!a||!b)return 0;
-  a=a.toLowerCase();b=b.toLowerCase();
-  if(a===b)return 1;
-  if(a.includes(b)||b.includes(a))return .9;
-  const m=a.length,n=b.length;
-  if(!m||!n)return 0;
+  if(!a||!b)return 0;a=a.toLowerCase();b=b.toLowerCase();
+  if(a===b)return 1;if(a.includes(b)||b.includes(a))return .9;
+  const m=a.length,n=b.length;if(!m||!n)return 0;
   const dp=Array.from({length:m+1},()=>new Array(n+1).fill(0));
-  for(let i=0;i<=m;i++)dp[i][0]=i;
-  for(let j=0;j<=n;j++)dp[0][j]=j;
+  for(let i=0;i<=m;i++)dp[i][0]=i;for(let j=0;j<=n;j++)dp[0][j]=j;
   for(let i=1;i<=m;i++)for(let j=1;j<=n;j++){
     const c=a[i-1]===b[j-1]?0:1;
     dp[i][j]=Math.min(dp[i-1][j]+1,dp[i][j-1]+1,dp[i-1][j-1]+c);
@@ -558,508 +1201,15 @@ function sim(a,b){
   return 1-dp[m][n]/Math.max(m,n);
 }
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function hi(text,q){
-  const safe=esc(text);
-  if(!q)return safe;
-  const parts=q.trim().split(/\s+/).filter(Boolean);
-  let r=safe;
+function hi(t,q){
+  const s=esc(t);if(!q)return s;
+  const parts=q.trim().split(/\s+/).filter(Boolean);let r=s;
   parts.forEach(p=>{
     const re=new RegExp('('+p.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
     r=r.replace(re,'<mark>$1</mark>');
   });
   return r;
 }
-
-/* ============================================================
-   7) STATE
-   ============================================================ */
-let curFilter='all', curSort='relevance', curQuery='';
-let curResults=[], visCount=12;
-const PAGE=12;
-let recent=JSON.parse(localStorage.getItem('dhm_recent')||'[]');
-let theme=localStorage.getItem('dhm_theme')||'light';
-
-/* ============================================================
-   8) DOM
-   ============================================================ */
-const $=id=>document.getElementById(id);
-const searchInput=$('searchInput'), searchBox=$('searchBox');
-const btnClear=$('btnClear'), btnVoice=$('btnVoice');
-const autocomplete=$('autocomplete');
-const filtersEl=$('filters'), sortBar=$('sortBar'), sortSelect=$('sortSelect');
-const blankState=$('blankState');
-const recentBlock=$('recentBlock'), recentChips=$('recentChips'), clearHistory=$('clearHistory');
-const resultsArea=$('resultsArea'), resultList=$('resultList'), loadMore=$('loadMore');
-const emptyState=$('emptyState'), emptyText=$('emptyText'), suggestionsEl=$('suggestions');
-const resultMeta=$('resultMeta');
-const themeToggle=$('themeToggle'), scrollTop=$('scrollTop'), toast=$('toast');
-
-/* ============================================================
-   9) THEME
-   ============================================================ */
-function applyTheme(){
-  document.body.setAttribute('data-theme',theme);
-  themeToggle.textContent=theme==='dark'?'☀️':'🌙';
-  const meta=document.querySelector('meta[name="theme-color"]');
-  if(meta)meta.setAttribute('content',theme==='dark'?'#0a121c':'#0e7490');
-}
-applyTheme();
-themeToggle.addEventListener('click',()=>{
-  theme=theme==='dark'?'light':'dark';
-  localStorage.setItem('dhm_theme',theme);
-  applyTheme();
-  showToast(theme==='dark'?'🌙 ডার্ক মোড':'☀️ লাইট মোড');
-});
-
-/* ============================================================
-   10) TOAST
-   ============================================================ */
-let toastT;
-function showToast(msg){
-  toast.textContent=msg;
-  toast.classList.add('show');
-  clearTimeout(toastT);
-  toastT=setTimeout(()=>toast.classList.remove('show'),2000);
-}
-
-/* ============================================================
-   11) RECENT
-   ============================================================ */
-function saveRecent(q){
-  if(!q||q.length<2)return;
-  recent=recent.filter(x=>x!==q);
-  recent.unshift(q);
-  recent=recent.slice(0,8);
-  localStorage.setItem('dhm_recent',JSON.stringify(recent));
-}
-function renderRecent(){
-  if(recent.length===0 || curQuery.length>0){
-    recentBlock.style.display='none';
-    return;
-  }
-  recentBlock.style.display='block';
-  recentChips.innerHTML='';
-  recent.forEach(q=>{
-    const b=document.createElement('button');
-    b.type='button';
-    b.className='recent-chip';
-    b.textContent='🕘 '+q;
-    b.onclick=()=>{
-      searchInput.value=q;
-      btnClear.classList.add('vis');
-      doSearch(q);
-    };
-    recentChips.appendChild(b);
-  });
-}
-clearHistory.addEventListener('click',()=>{
-  recent=[];
-  localStorage.removeItem('dhm_recent');
-  renderRecent();
-  showToast('✅ মুছে ফেলা হয়েছে');
-});
-
-/* ============================================================
-   12) FILTERS
-   ============================================================ */
-filtersEl.addEventListener('click',e=>{
-  const chip=e.target.closest('.chip');
-  if(!chip)return;
-  filtersEl.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
-  chip.classList.add('active');
-  curFilter=chip.dataset.filter;
-  if(curQuery)doSearch(curQuery);
-});
-
-/* ============================================================
-   13) SEARCH INPUT
-   ============================================================ */
-let debounceT;
-searchInput.addEventListener('input',e=>{
-  const v=e.target.value;
-  btnClear.classList.toggle('vis',v.length>0);
-  if(v.length>=1)showAutocomplete(v);
-  else hideAutocomplete();
-
-  clearTimeout(debounceT);
-  debounceT=setTimeout(()=>{
-    const q=v.trim();
-    if(q.length>=2)doSearch(q);
-    else if(q.length===0)resetAll();
-  },200);
-});
-searchInput.addEventListener('focus',()=>{
-  searchBox.classList.add('focused');
-  if(searchInput.value.length>=1)showAutocomplete(searchInput.value);
-});
-searchInput.addEventListener('blur',()=>{
-  searchBox.classList.remove('focused');
-  setTimeout(hideAutocomplete,180);
-});
-searchInput.addEventListener('keydown',e=>{
-  if(e.key==='Enter'){
-    e.preventDefault();
-    hideAutocomplete();
-    const q=searchInput.value.trim();
-    if(q)doSearch(q);
-  }
-});
-btnClear.addEventListener('click',()=>{
-  searchInput.value='';
-  btnClear.classList.remove('vis');
-  hideAutocomplete();
-  resetAll();
-  searchInput.focus();
-});
-
-/* ============================================================
-   14) AUTOCOMPLETE
-   ============================================================ */
-function showAutocomplete(q){
-  const nq=norm(q);
-  if(!nq){hideAutocomplete();return}
-  const seen=new Set();
-  const sugg=[];
-  SEARCH_INDEX.forEach(item=>{
-    if(item.type!=='student')return;
-    const n=norm(item.title);
-    if(!n)return;
-    const s=sim(n,nq);
-    if(s>0.28 || n.startsWith(nq) || n.includes(nq)){
-      if(!seen.has(item.title)){
-        seen.add(item.title);
-        sugg.push({title:item.title,cls:item.className,score:s});
-      }
-    }
-  });
-  sugg.sort((a,b)=>b.score-a.score);
-  const top=sugg.slice(0,6);
-  if(top.length===0){hideAutocomplete();return}
-  autocomplete.innerHTML='';
-  top.forEach(s=>{
-    const d=document.createElement('div');
-    d.className='ac-item';
-    d.innerHTML='<span class="ac-ic">👤</span><span class="ac-tx">'+hi(s.title,q)+'</span><span class="ac-tp">'+s.cls+'</span>';
-    d.addEventListener('mousedown',e=>{
-      e.preventDefault();
-      searchInput.value=s.title;
-      btnClear.classList.add('vis');
-      hideAutocomplete();
-      doSearch(s.title);
-    });
-    d.addEventListener('touchstart',e=>{
-      e.preventDefault();
-      searchInput.value=s.title;
-      btnClear.classList.add('vis');
-      hideAutocomplete();
-      doSearch(s.title);
-    },{passive:false});
-    autocomplete.appendChild(d);
-  });
-  autocomplete.classList.add('show');
-}
-function hideAutocomplete(){autocomplete.classList.remove('show')}
-
-/* ============================================================
-   15) SEARCH
-   ============================================================ */
-function doSearch(q){
-  curQuery=q;
-  const nq=norm(q);
-  if(!nq){resetAll();return}
-  const words=nq.split(/\s+/).filter(Boolean);
-
-  const scored=SEARCH_INDEX
-    .filter(item=>{
-      if(item.type!=='student')return false;
-      if(curFilter!=='all' && item.classKey!==curFilter)return false;
-      return true;
-    })
-    .map(item=>{
-      let sc=0;
-      const nn=norm(item.title), cn=norm(item.className);
-      if(nn===nq)sc+=100;
-      else if(nn.startsWith(nq))sc+=80;
-      else if(nn.includes(nq))sc+=60;
-      words.forEach(w=>{
-        if(nn.includes(w))sc+=20;
-        if(cn.includes(w))sc+=15;
-      });
-      if(sc===0){
-        const s=sim(nn,nq);
-        if(s>0.45)sc+=s*40;
-      }
-      if(item.rankNum===1)sc+=10;
-      else if(item.rankNum===2)sc+=6;
-      else if(item.rankNum===3)sc+=4;
-      sc+=parseFloat(item.gpa)*2;
-      return{...item,_s:sc};
-    })
-    .filter(x=>x._s>0);
-
-  if(curSort==='relevance')scored.sort((a,b)=>b._s-a._s);
-  else if(curSort==='rank')scored.sort((a,b)=>(a.rankNum||9999)-(b.rankNum||9999));
-  else if(curSort==='marks')scored.sort((a,b)=>(b.marks||0)-(a.marks||0));
-  else if(curSort==='az')scored.sort((a,b)=>a.title.localeCompare(b.title,'bn'));
-  else if(curSort==='za')scored.sort((a,b)=>b.title.localeCompare(a.title,'bn'));
-
-  curResults=scored;
-  visCount=PAGE;
-
-  recentBlock.style.display='none';
-  blankState.style.display='none';
-
-  if(curResults.length===0){
-    resultsArea.style.display='none';
-    emptyState.style.display='block';
-    sortBar.classList.remove('show');
-    renderSuggestions(nq);
-    return;
-  }
-  emptyState.style.display='none';
-  resultsArea.style.display='block';
-  sortBar.classList.add('show');
-  saveRecent(q);
-  renderResults();
-}
-
-/* ============================================================
-   16) RENDER RESULTS
-   ============================================================ */
-function renderResults(){
-  const total=curResults.length;
-  const shown=Math.min(visCount,total);
-  resultMeta.innerHTML='<strong>'+total+'</strong> ফলাফল — দেখানো '+shown;
-
-  resultList.innerHTML='';
-  const slice=curResults.slice(0,visCount);
-
-  slice.forEach((item,i)=>{
-    const card=document.createElement('div');
-    card.className='result-card';
-    card.style.animationDelay=Math.min(i*25,250)+'ms';
-
-    const rk = item.rankNum===1?'r1':item.rankNum===2?'r2':item.rankNum===3?'r3':'';
-    const sh = item.sharedRank?'shared':'';
-    const failTag = item.isFail?'<span class="fail-tag">❌ ফেল</span>':'';
-
-    card.innerHTML =
-      '<div class="card-top">'+
-        '<div class="card-name">'+hi(item.title,curQuery)+'</div>'+
-        '<span class="badge-class">'+item.className+'</span>'+
-      '</div>'+
-      '<div class="card-info">'+
-        '<span>🏆 <span class="rank-badge '+rk+' '+sh+'">মেধাস্থান '+item.rank+(item.sharedRank?' (যুগ্ম)':'')+'</span></span>'+
-        '<span>📊 GPA: <strong>'+item.gpa+'</strong></span>'+
-        '<span>🎖️ <strong>'+item.lg+'</strong></span>'+
-        failTag+
-      '</div>'+
-      '<div class="card-info">'+
-        '<span>📝 প্রাপ্ত: <span class="marks-big">'+item.marks+'</span> / '+item.totalFull+'</span>'+
-      '</div>'+
-      '<div class="tap-hint">👆 বিষয়ভিত্তিক নম্বর দেখতে ট্যাপ করুন</div>'+
-      '<div class="rel-bar" style="width:'+Math.min(100,(item._s/120)*100)+'%"></div>';
-
-    card.addEventListener('click',()=>showDetails(item));
-    resultList.appendChild(card);
-  });
-
-  if(visCount>=total){
-    loadMore.classList.remove('show');
-  }else{
-    loadMore.classList.add('show');
-    loadMore.textContent='আরও দেখুন ('+(total-visCount)+' বাকি)';
-  }
-}
-
-/* ============================================================
-   17) MODAL
-   ============================================================ */
-function showDetails(item){
-  const rk = item.rankNum===1?'r1':item.rankNum===2?'r2':item.rankNum===3?'r3':'';
-  const sh = item.sharedRank?'shared':'';
-
-  let rows='';
-  item.subjects.forEach((s,i)=>{
-    const m=item.subjectMarks[i];
-    const fm=s[1];
-    const failed=(m/fm)*100<33;
-    const g=calcGrade(m,fm);
-    rows+='<tr>'+
-      '<td class="sub-name">'+s[0]+'</td>'+
-      '<td class="mk'+(failed?' fail':'')+'">'+m+'</td>'+
-      '<td class="fm">'+fm+'</td>'+
-      '<td class="gr'+(failed?' fail':'')+'">'+g.g+'</td>'+
-    '</tr>';
-  });
-
-  const overlay=document.createElement('div');
-  overlay.className='modal-overlay';
-  overlay.innerHTML=
-    '<div class="modal-sheet">'+
-      '<div class="modal-handle"></div>'+
-      '<div class="modal-head">'+
-        '<div style="flex:1;min-width:0">'+
-          '<div class="modal-title">'+esc(item.title)+'</div>'+
-          '<div class="modal-sub">'+item.className+' শ্রেণি — ৩য় সেমিস্টার ২০২৬</div>'+
-        '</div>'+
-        '<button class="modal-close" type="button" aria-label="বন্ধ">✕</button>'+
-      '</div>'+
-      '<div class="modal-badges">'+
-        '<span class="rank-badge '+rk+' '+sh+'">🏆 মেধাস্থান '+item.rank+(item.sharedRank?' (যুগ্ম)':'')+'</span>'+
-        '<span class="m-badge">GPA '+item.gpa+'</span>'+
-        '<span class="m-badge">গ্রেড '+item.lg+'</span>'+
-      '</div>'+
-      '<div class="summary-box">'+
-        '<div class="summary-row"><span>মোট প্রাপ্ত নম্বর</span><span style="color:var(--accent);font-size:16px">'+item.marks+' / '+item.totalFull+'</span></div>'+
-        '<div class="summary-row"><span>শতকরা</span><span>'+((item.marks/item.totalFull)*100).toFixed(2)+'%</span></div>'+
-      '</div>'+
-      '<div style="font-weight:700;font-size:13.5px;margin-bottom:8px">📋 বিষয়ভিত্তিক নম্বর</div>'+
-      '<div style="overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:11px">'+
-        '<table class="subject-table">'+
-          '<thead><tr><th>বিষয়</th><th>প্রাপ্ত</th><th>পূর্ণ</th><th>গ্রেড</th></tr></thead>'+
-          '<tbody>'+rows+'</tbody>'+
-        '</table>'+
-      '</div>'+
-      '<button class="modal-close-btn" type="button">বন্ধ করুন</button>'+
-    '</div>';
-
-  overlay.addEventListener('click',e=>{
-    if(e.target===overlay)overlay.remove();
-  });
-  const closeBtn=overlay.querySelector('.modal-close');
-  const closeBtn2=overlay.querySelector('.modal-close-btn');
-  closeBtn.addEventListener('click',()=>overlay.remove());
-  closeBtn2.addEventListener('click',()=>overlay.remove());
-
-  document.body.appendChild(overlay);
-  document.body.style.overflow='hidden';
-  const obs=new MutationObserver(()=>{
-    if(!document.body.contains(overlay)){
-      document.body.style.overflow='';
-      obs.disconnect();
-    }
-  });
-  obs.observe(document.body,{childList:true});
-}
-
-/* ============================================================
-   18) SUGGESTIONS
-   ============================================================ */
-function renderSuggestions(nq){
-  const similar=[];
-  SEARCH_INDEX.filter(x=>x.type==='student').forEach(item=>{
-    const n=norm(item.title);
-    const s=sim(n,nq);
-    if(s>0.35)similar.push({...item,sim:s});
-  });
-  similar.sort((a,b)=>b.sim-a.sim);
-  const top=similar.slice(0,5);
-  suggestionsEl.innerHTML='';
-  if(top.length>0){
-    emptyText.textContent='আপনি হয়তো এগুলো খুঁজছেন 👇';
-    top.forEach(s=>{
-      const b=document.createElement('button');
-      b.type='button';
-      b.className='sug-chip';
-      b.textContent=s.title;
-      b.onclick=()=>{
-        searchInput.value=s.title;
-        btnClear.classList.add('vis');
-        doSearch(s.title);
-      };
-      suggestionsEl.appendChild(b);
-    });
-  }else{
-    emptyText.textContent='বানান ঠিক আছে কিনা দেখুন';
-  }
-}
-
-/* ============================================================
-   19) RESET
-   ============================================================ */
-function resetAll(){
-  curQuery='';
-  curResults=[];
-  resultsArea.style.display='none';
-  emptyState.style.display='none';
-  sortBar.classList.remove('show');
-  blankState.style.display='block';
-  renderRecent();
-}
-
-/* ============================================================
-   20) LOAD MORE
-   ============================================================ */
-loadMore.addEventListener('click',()=>{
-  visCount+=PAGE;
-  renderResults();
-});
-
-/* ============================================================
-   21) SORT
-   ============================================================ */
-sortSelect.addEventListener('change',()=>{
-  curSort=sortSelect.value;
-  if(curQuery)doSearch(curQuery);
-});
-
-/* ============================================================
-   22) VOICE
-   ============================================================ */
-const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-if(SR){
-  const rec=new SR();
-  rec.lang='bn-BD';
-  rec.continuous=false;
-  rec.interimResults=false;
-  btnVoice.addEventListener('click',()=>{
-    try{
-      rec.start();
-      btnVoice.classList.add('listening');
-      showToast('🎤 বলুন...');
-    }catch(e){
-      showToast('❌ মাইক্রোফোন চালু হয়নি');
-    }
-  });
-  rec.onresult=e=>{
-    const txt=e.results[0][0].transcript;
-    searchInput.value=txt;
-    btnClear.classList.add('vis');
-    doSearch(txt.trim());
-  };
-  rec.onend=()=>btnVoice.classList.remove('listening');
-  rec.onerror=()=>{
-    btnVoice.classList.remove('listening');
-    showToast('❌ ভয়েস কাজ করেনি');
-  };
-}else{
-  btnVoice.addEventListener('click',()=>showToast('❌ এই ব্রাউজারে ভয়েস নেই'));
-}
-
-/* ============================================================
-   23) SCROLL TOP
-   ============================================================ */
-let scrollT;
-window.addEventListener('scroll',()=>{
-  clearTimeout(scrollT);
-  scrollT=setTimeout(()=>{
-    if(window.scrollY>300)scrollTop.classList.add('show');
-    else scrollTop.classList.remove('show');
-  },80);
-},{passive:true});
-scrollTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-
-/* ============================================================
-   24) INIT
-   ============================================================ */
-function init(){
-  // সম্পূর্ণ খালি স্ক্রিন — শুধু Recent থাকলে দেখাবে
-  blankState.style.display='block';
-  renderRecent();
-}
-init();
-
 </script>
 
 </body>
