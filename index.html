@@ -72,72 +72,70 @@ body{overscroll-behavior-y:contain}
 #q::placeholder{color:var(--dim);font-size:15px;font-weight:400}
 .ib{width:36px;height:36px;border:none;background:transparent;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px;color:var(--dim);flex-shrink:0;font-family:inherit}
 .ib:active{background:var(--border)}
-.ib.on{background:var(--danger);color:#fff;animation:pulse 1s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,.6)}50%{box-shadow:0 0 0 10px rgba(220,38,38,0)}}
 
 /* RESULT LIST */
 .res-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px 14px calc(24px + var(--safe-b))}
-.list-head{font-size:12px;color:var(--dim);font-weight:600;margin-bottom:10px;padding:0 4px;display:flex;justify-content:space-between;align-items:center}
+.list-head{font-size:12.5px;color:var(--dim);font-weight:600;margin-bottom:10px;padding:0 4px;display:flex;justify-content:space-between;align-items:center}
 .list-head .cnt{background:var(--card);padding:3px 10px;border-radius:12px;font-weight:700;color:var(--brand);box-shadow:var(--sh)}
-.empty-res{text-align:center;padding:50px 20px;animation:fadeIn .3s ease}
+.empty-res{text-align:center;padding:50px 20px}
 .empty-ic{font-size:56px;margin-bottom:12px;opacity:.5}
 .empty-t{font-size:17px;font-weight:700;margin-bottom:6px}
 .empty-tx{font-size:13.5px;color:var(--dim);line-height:1.6}
 
 /* ═══════════════════════════════════════════
-   PREMIUM RESULT CARD — GRADE COLOR BASED
+   PREMIUM CARD — Soft grade coloring
    ═══════════════════════════════════════════ */
-.st-card{background:var(--card);border-radius:18px;padding:0;margin-bottom:12px;box-shadow:var(--sh);cursor:pointer;transition:all .2s;overflow:hidden;display:flex;animation:in .3s ease both;position:relative;border:1px solid var(--border)}
+.st-card{background:var(--card);border-radius:16px;margin-bottom:11px;box-shadow:var(--sh);cursor:pointer;transition:all .2s;overflow:hidden;display:flex;align-items:stretch;animation:in .3s ease both;border:1px solid var(--border);position:relative}
 @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .st-card:active{transform:scale(.98);box-shadow:var(--sh-l)}
 
-/* Left grade strip */
-.st-card .strip{width:5px;flex-shrink:0}
-.st-card.g-aplus .strip{background:linear-gradient(180deg,#059669,#10b981)}
-.st-card.g-a .strip{background:linear-gradient(180deg,#0d9488,#14b8a6)}
-.st-card.g-aminus .strip{background:linear-gradient(180deg,#0891b2,#06b6d4)}
-.st-card.g-b .strip{background:linear-gradient(180deg,#d97706,#f59e0b)}
-.st-card.g-c .strip{background:linear-gradient(180deg,#ea580c,#f97316)}
-.st-card.g-d .strip{background:linear-gradient(180deg,#dc2626,#ef4444)}
-.st-card.g-f .strip{background:linear-gradient(180deg,#7f1d1d,#991b1b)}
+/* Grade tint — soft background */
+.st-card.g-aplus{background:linear-gradient(135deg,#f0fdf4 0%,#dcfce7 100%)}
+.st-card.g-a{background:linear-gradient(135deg,#f0fdfa 0%,#ccfbf1 100%)}
+.st-card.g-aminus{background:linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 100%)}
+.st-card.g-b{background:linear-gradient(135deg,#fffbeb 0%,#fef3c7 100%)}
+.st-card.g-c{background:linear-gradient(135deg,#fff7ed 0%,#ffedd5 100%)}
+.st-card.g-d{background:linear-gradient(135deg,#fef2f2 0%,#fee2e2 100%)}
+.st-card.g-f{background:linear-gradient(135deg,#fef2f2 0%,#fecaca 100%)}
 
-.st-card .content{flex:1;padding:14px 15px;display:flex;align-items:center;gap:13px;min-width:0}
+[data-theme="dark"] .st-card.g-aplus{background:linear-gradient(135deg,#0a2918 0%,#0d3a20 100%)}
+[data-theme="dark"] .st-card.g-a{background:linear-gradient(135deg,#042a2a 0%,#064e3b 100%)}
+[data-theme="dark"] .st-card.g-aminus{background:linear-gradient(135deg,#082f49 0%,#0c4a6e 100%)}
+[data-theme="dark"] .st-card.g-b{background:linear-gradient(135deg,#422006 0%,#57330d 100%)}
+[data-theme="dark"] .st-card.g-c{background:linear-gradient(135deg,#431407 0%,#5a1e0a 100%)}
+[data-theme="dark"] .st-card.g-d{background:linear-gradient(135deg,#3f1010 0%,#4d1414 100%)}
+[data-theme="dark"] .st-card.g-f{background:linear-gradient(135deg,#3b0a0a 0%,#450a0a 100%)}
 
-/* Avatar circle with grade */
-.st-card .avatar{width:52px;height:52px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.12);position:relative}
-.st-card.g-aplus .avatar{background:linear-gradient(135deg,#059669,#10b981)}
-.st-card.g-a .avatar{background:linear-gradient(135deg,#0d9488,#14b8a6)}
-.st-card.g-aminus .avatar{background:linear-gradient(135deg,#0891b2,#06b6d4)}
-.st-card.g-b .avatar{background:linear-gradient(135deg,#d97706,#f59e0b)}
-.st-card.g-c .avatar{background:linear-gradient(135deg,#ea580c,#f97316)}
-.st-card.g-d .avatar{background:linear-gradient(135deg,#dc2626,#ef4444)}
-.st-card.g-f .avatar{background:linear-gradient(135deg,#7f1d1d,#991b1b)}
+/* Left accent strip */
+.st-card .strip{width:4px;flex-shrink:0}
+.st-card.g-aplus .strip{background:#10b981}
+.st-card.g-a .strip{background:#14b8a6}
+.st-card.g-aminus .strip{background:#0ea5e9}
+.st-card.g-b .strip{background:#f59e0b}
+.st-card.g-c .strip{background:#f97316}
+.st-card.g-d .strip{background:#ef4444}
+.st-card.g-f .strip{background:#991b1b}
 
-.st-card .info{flex:1;min-width:0}
-.st-card .nm{font-size:16px;font-weight:700;color:var(--text);line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:1px}
-.st-card .nm mark{background:linear-gradient(180deg,transparent 55%,rgba(13,148,136,.35) 55%);color:var(--accent);font-weight:800;padding:0 2px;border-radius:2px}
-.st-card .en{font-size:11.5px;color:var(--dim);font-weight:500;letter-spacing:.3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:5px}
-.st-card .en mark{background:rgba(13,148,136,.22);color:var(--accent);font-weight:700;padding:0 2px;border-radius:2px}
-.st-card .meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
-.st-card .tag{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:9px;display:inline-flex;align-items:center;gap:3px}
-.st-card .tag-cls{background:rgba(13,92,99,.1);color:var(--brand)}
-[data-theme="dark"] .tag-cls{background:rgba(20,184,166,.15);color:var(--brand)}
-.st-card .tag-rk{background:rgba(217,119,6,.14);color:#b45309;font-weight:800}
-.st-card .tag-gpa{background:rgba(5,150,105,.12);color:#047857}
-.st-card.g-aplus .tag-gpa{background:rgba(5,150,105,.15);color:#047857}
-.st-card.g-f .tag-rk{background:rgba(220,38,38,.14);color:#991b1b}
+/* Grade letter on right */
+.st-card .grade{width:56px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:19px;line-height:1;gap:3px}
+.st-card.g-aplus .grade{background:#10b981}
+.st-card.g-a .grade{background:#14b8a6}
+.st-card.g-aminus .grade{background:#0ea5e9}
+.st-card.g-b .grade{background:#f59e0b}
+.st-card.g-c .grade{background:#f97316}
+.st-card.g-d .grade{background:#ef4444}
+.st-card.g-f .grade{background:#991b1b}
+.st-card .grade .lbl{font-size:8px;opacity:.85;font-weight:600;letter-spacing:.3px}
 
-/* Grade badge */
-.st-card .grade-badge{width:44px;height:44px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;color:#fff;font-size:13px;line-height:1;box-shadow:0 4px 10px rgba(0,0,0,.12)}
-.st-card .grade-badge span:first-child{font-size:15px}
-.st-card .grade-badge span:last-child{font-size:8px;opacity:.9;font-weight:600;margin-top:1px;letter-spacing:.3px}
-.st-card.g-aplus .grade-badge{background:linear-gradient(135deg,#059669,#10b981)}
-.st-card.g-a .grade-badge{background:linear-gradient(135deg,#0d9488,#14b8a6)}
-.st-card.g-aminus .grade-badge{background:linear-gradient(135deg,#0891b2,#06b6d4)}
-.st-card.g-b .grade-badge{background:linear-gradient(135deg,#d97706,#f59e0b)}
-.st-card.g-c .grade-badge{background:linear-gradient(135deg,#ea580c,#f97316)}
-.st-card.g-d .grade-badge{background:linear-gradient(135deg,#dc2626,#ef4444)}
-.st-card.g-f .grade-badge{background:linear-gradient(135deg,#7f1d1d,#991b1b)}
+.st-card .content{flex:1;padding:13px 14px;min-width:0}
+.st-card .nm{font-size:16px;font-weight:700;color:var(--text);line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:2px}
+.st-card .nm mark{background:linear-gradient(180deg,transparent 55%,rgba(13,148,136,.35) 55%);color:#0f766e;font-weight:800;padding:0 2px;border-radius:2px}
+.st-card .en{font-size:11.5px;color:var(--dim);font-weight:500;letter-spacing:.2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:6px}
+.st-card .en mark{background:rgba(13,148,136,.2);color:#0f766e;font-weight:700;padding:0 2px;border-radius:2px}
+.st-card .meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.st-card .tag{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:9px;display:inline-flex;align-items:center;gap:3px;background:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.9);color:var(--text)}
+[data-theme="dark"] .st-card .tag{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.1)}
+.st-card .tag b{font-weight:800}
 
 /* FULL RESULT */
 .full-hd{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;padding:calc(10px + var(--safe-t)) 14px 12px;display:flex;align-items:center;gap:10px;box-shadow:0 4px 12px rgba(13,92,99,.25);flex-shrink:0}
@@ -154,12 +152,11 @@ body{overscroll-behavior-y:contain}
 .rc-top{color:#fff;padding:20px 18px;text-align:center;position:relative;overflow:hidden}
 .rc.g-aplus .rc-top{background:linear-gradient(135deg,#047857,#10b981)}
 .rc.g-a .rc-top{background:linear-gradient(135deg,#0d5c63,#14b8a6)}
-.rc.g-aminus .rc-top{background:linear-gradient(135deg,#0e7490,#06b6d4)}
+.rc.g-aminus .rc-top{background:linear-gradient(135deg,#0e7490,#0ea5e9)}
 .rc.g-b .rc-top{background:linear-gradient(135deg,#b45309,#f59e0b)}
 .rc.g-c .rc-top{background:linear-gradient(135deg,#c2410c,#f97316)}
 .rc.g-d .rc-top{background:linear-gradient(135deg,#b91c1c,#ef4444)}
 .rc.g-f .rc-top{background:linear-gradient(135deg,#7f1d1d,#991b1b)}
-
 .rc-top::before{content:'';position:absolute;top:-50%;right:-30%;width:200px;height:200px;background:rgba(255,255,255,.08);border-radius:50%}
 .rc-top::after{content:'';position:absolute;bottom:-60%;left:-20%;width:180px;height:180px;background:rgba(255,255,255,.06);border-radius:50%}
 .rc-logo{width:52px;height:52px;background:rgba(255,255,255,.22);border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 10px;position:relative;z-index:1;backdrop-filter:blur(6px)}
@@ -194,7 +191,7 @@ body{overscroll-behavior-y:contain}
 .rc-table .gr.f{color:var(--danger)}
 .rc-table .gr.a-p{color:#047857}
 .rc-table .gr.a{color:#0d9488}
-.rc-table .gr.a-m{color:#0891b2}
+.rc-table .gr.a-m{color:#0284c7}
 .rc-total{margin:0 14px 14px;border-radius:12px;padding:14px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(135deg,rgba(13,92,99,.08),rgba(13,148,136,.08));border:1px solid rgba(13,92,99,.15)}
 .rc-total-l{font-size:12.5px;color:var(--dim);font-weight:600}
 .rc-total-v{font-size:17px;font-weight:800;color:var(--brand)}
@@ -202,7 +199,7 @@ body{overscroll-behavior-y:contain}
 .rc-grade{color:#fff;margin:0 14px 16px;border-radius:14px;padding:18px;text-align:center;position:relative;overflow:hidden}
 .rc.g-aplus .rc-grade{background:linear-gradient(135deg,#059669,#10b981)}
 .rc.g-a .rc-grade{background:linear-gradient(135deg,#0d5c63,#14b8a6)}
-.rc.g-aminus .rc-grade{background:linear-gradient(135deg,#0e7490,#06b6d4)}
+.rc.g-aminus .rc-grade{background:linear-gradient(135deg,#0e7490,#0ea5e9)}
 .rc.g-b .rc-grade{background:linear-gradient(135deg,#b45309,#f59e0b)}
 .rc.g-c .rc-grade{background:linear-gradient(135deg,#c2410c,#f97316)}
 .rc.g-d .rc-grade{background:linear-gradient(135deg,#b91c1c,#ef4444)}
@@ -236,7 +233,7 @@ body{overscroll-behavior-y:contain}
 </head>
 <body data-theme="light">
 
-<!-- ═══════ SCREEN 1: WELCOME ═══════ -->
+<!-- SCREEN 1: WELCOME -->
 <div class="screen on" id="s1">
   <div class="body">
     <div class="welcome">
@@ -250,7 +247,7 @@ body{overscroll-behavior-y:contain}
   </div>
 </div>
 
-<!-- ═══════ SCREEN 2: CLASS SELECT ═══════ -->
+<!-- SCREEN 2: CLASS SELECT -->
 <div class="screen slide" id="s2">
   <div class="body" style="padding-top:calc(24px + var(--safe-t))">
     <div class="sel-hd">
@@ -271,7 +268,7 @@ body{overscroll-behavior-y:contain}
   </div>
 </div>
 
-<!-- ═══════ SCREEN 3: SEARCH + LIST ═══════ -->
+<!-- SCREEN 3: SEARCH + LIST -->
 <div class="screen slide" id="s3">
   <div class="search-hd">
     <div class="search-hd-top">
@@ -304,7 +301,7 @@ body{overscroll-behavior-y:contain}
   </div>
 </div>
 
-<!-- ═══════ SCREEN 4: FULL RESULT ═══════ -->
+<!-- SCREEN 4: FULL RESULT -->
 <div class="screen slide" id="s4">
   <div class="full-hd">
     <button class="back-btn" id="s4Back" type="button">←</button>
@@ -329,9 +326,7 @@ body{overscroll-behavior-y:contain}
 </div>
 
 <script>
-/* ═══════════════════════════════════════════
-   DATA
-   ═══════════════════════════════════════════ */
+/* DATA */
 const RAW={
   play:[
     {id:'০১',n:'রাফিয়া',en:'Rafia',m:[100,99,99,95,100]},
@@ -522,12 +517,9 @@ const SUBS={
 };
 
 const CN={play:'প্লে',nursery:'নার্সারি','1':'১ম','2':'২য়','3':'৩য়','4':'৪র্থ','5':'৫ম','6':'৬ষ্ঠ'};
-const BN_DIGITS=['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
-function toBn(n){return String(n).split('').map(d=>BN_DIGITS[+d]??d).join('')}
+const BN=['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+function toBn(n){return String(n).split('').map(d=>BN[+d]??d).join('')}
 
-/* ═══════════════════════════════════════════
-   GRADE & PROCESS
-   ═══════════════════════════════════════════ */
 function grd(m,f){
   const p=(m/f)*100;
   if(p>=80)return{p:5,g:'A+'};
@@ -593,24 +585,18 @@ function process(ck){
   return list;
 }
 
-/* ═══════════════════════════════════════════
-   STATE
-   ═══════════════════════════════════════════ */
 let curCls='';
 let curStudent=null;
 let curData=[];
 let theme=localStorage.getItem('dhm_t')||'light';
 
 const $=id=>document.getElementById(id);
-const q=$('q'),sBox=$('sBox'),clr=$('clr');
+const q=$('q'),clr=$('clr');
 const resList=$('resList'),emptyRes=$('emptyRes'),emptyTx=$('emptyTx');
 const listHead=$('listHead'),listTitle=$('listTitle'),listCount=$('listCount');
 const thBtn=$('thBtn'),clsChip=$('clsChip'),clsChipNm=$('clsChipNm');
 const fullBody=$('fullBody'),loading=$('loading'),toast=$('toast'),loadingTx=$('loadingTx');
 
-/* ═══════════════════════════════════════════
-   NAVIGATION & THEME
-   ═══════════════════════════════════════════ */
 function showScreen(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));
   $(id).classList.add('on');
@@ -639,9 +625,6 @@ function showToast(m){
 
 $('startBtn').addEventListener('click',()=>showScreen('s2'));
 
-/* ═══════════════════════════════════════════
-   CLASS SELECT → LOAD ALL STUDENTS
-   ═══════════════════════════════════════════ */
 document.querySelectorAll('.class-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
     curCls=btn.dataset.cls;
@@ -667,9 +650,6 @@ $('s3Back').addEventListener('click',()=>{
 clsChip.addEventListener('click',()=>showScreen('s2'));
 $('s4Back').addEventListener('click',()=>showScreen('s3'));
 
-/* ═══════════════════════════════════════════
-   SEARCH — filter the list live
-   ═══════════════════════════════════════════ */
 let dT;
 q.addEventListener('input',e=>{
   const v=e.target.value.trim();
@@ -692,8 +672,7 @@ function filterList(qv){
   const words=n.split(/\s+/).filter(Boolean);
   const res=curData.map(it=>{
     let sc=0;
-    const nnBn=nrm(it.n);
-    const nnEn=nrm(it.en);
+    const nnBn=nrm(it.n),nnEn=nrm(it.en);
     if(nnBn===n)sc+=100;
     else if(nnBn.startsWith(n))sc+=85;
     else if(nnBn.includes(n))sc+=70;
@@ -705,15 +684,12 @@ function filterList(qv){
       if(nnEn.includes(w))sc+=18;
     });
     if(sc===0){
-      const sBn=sim(nnBn,n);
-      const sEn=sim(nnEn,n);
-      const s=Math.max(sBn,sEn);
+      const s=Math.max(sim(nnBn,n),sim(nnEn,n));
       if(s>0.42)sc+=s*40;
     }
     return{...it,_s:sc};
   }).filter(x=>x._s>0);
   res.sort((a,b)=>b._s-a._s);
-
   if(!res.length){
     resList.innerHTML='';
     emptyRes.style.display='block';
@@ -728,9 +704,6 @@ function filterList(qv){
   renderList(res,qv);
 }
 
-/* ═══════════════════════════════════════════
-   RENDER LIST — premium grade-colored cards
-   ═══════════════════════════════════════════ */
 function renderList(list,qv){
   resList.innerHTML='';
   emptyRes.style.display='none';
@@ -740,44 +713,35 @@ function renderList(list,qv){
     c.className='st-card '+gc;
     c.style.animationDelay=Math.min(i*22,250)+'ms';
 
-    // Bangla / English highlight
     const nnBn=nrm(it.n),nnEn=nrm(it.en),qn=nrm(qv||'');
     const bnHl=qn&&(nnBn.includes(qn)||sim(nnBn,qn)>0.42);
     const enHl=qn&&(nnEn.includes(qn)||sim(nnEn,qn)>0.42);
-
     const bnHtml=bnHl?hi(it.n,qv):esc(it.n);
     const enHtml=enHl?hi(it.en,qv):esc(it.en);
 
-    // Rank display
     const rankTxt=it.fail?'ফেল':(it.rk+(it.shared?'*':''));
     const gradeLetter=it.fail?'F':it.lg;
 
     c.innerHTML=
       '<div class="strip"></div>'+
       '<div class="content">'+
-        '<div class="avatar">'+esc(it.n.charAt(0))+'</div>'+
-        '<div class="info">'+
-          '<div class="nm">'+bnHtml+'</div>'+
-          '<div class="en">'+enHtml+'</div>'+
-          '<div class="meta">'+
-            '<span class="tag tag-cls">📚 '+it.cn+'</span>'+
-            '<span class="tag tag-rk">🏆 '+rankTxt+'</span>'+
-            '<span class="tag tag-gpa">GPA '+it.gpa+'</span>'+
-          '</div>'+
+        '<div class="nm">'+bnHtml+'</div>'+
+        '<div class="en">'+enHtml+'</div>'+
+        '<div class="meta">'+
+          '<span class="tag">📚 '+it.cn+'</span>'+
+          '<span class="tag">🏆 <b>'+rankTxt+'</b></span>'+
+          '<span class="tag">GPA <b>'+it.gpa+'</b></span>'+
         '</div>'+
-        '<div class="grade-badge">'+
-          '<span>'+gradeLetter+'</span>'+
-          '<span>গ্রেড</span>'+
-        '</div>'+
+      '</div>'+
+      '<div class="grade">'+
+        '<span>'+gradeLetter+'</span>'+
+        '<span class="lbl">গ্রেড</span>'+
       '</div>';
     c.addEventListener('click',()=>openFullResult(it));
     resList.appendChild(c);
   });
 }
 
-/* ═══════════════════════════════════════════
-   OPEN FULL RESULT
-   ═══════════════════════════════════════════ */
 function openFullResult(st){
   curStudent=st;
   fullBody.innerHTML=buildReport(st);
@@ -847,29 +811,29 @@ function buildReport(st){
 }
 
 /* ═══════════════════════════════════════════
-   CANVAS RENDER — grade-colored
+   CANVAS RENDERER — Reliable version
    ═══════════════════════════════════════════ */
-async function renderCardToCanvas(st){
+function renderCardToCanvas(st){
   const W=720;
   const PAD=28;
-  const BG=theme==='dark'?'#111827':'#ffffff';
+  const BG=theme==='dark'?'#0f172a':'#ffffff';
   const TEXT=theme==='dark'?'#f1f5f9':'#1a2332';
   const DIM=theme==='dark'?'#94a3b8':'#64748b';
-  const BORDER=theme==='dark'?'#1f2937':'#e2e8f0';
-  const CARD_BG=theme==='dark'?'#1f2937':'#f1f5f9';
+  const BORDER=theme==='dark'?'#334155':'#e2e8f0';
+  const CARD_BG=theme==='dark'?'#1e293b':'#f1f5f9';
   const DANGER='#dc2626';
 
-  // Grade colors
   const gradeColors={
     'A+':['#047857','#10b981'],
     'A':['#0d5c63','#14b8a6'],
-    'A-':['#0e7490','#06b6d4'],
+    'A-':['#0e7490','#0ea5e9'],
     'B':['#b45309','#f59e0b'],
     'C':['#c2410c','#f97316'],
     'D':['#b91c1c','#ef4444'],
     'F':['#7f1d1d','#991b1b']
   };
   const gc=gradeColors[st.lg]||gradeColors['F'];
+  const pc=((st.tot/st.tfull)*100).toFixed(2);
 
   const headerH=190;
   const infoH=210;
@@ -888,10 +852,11 @@ async function renderCardToCanvas(st){
   const ctx=canvas.getContext('2d');
   ctx.scale(scale,scale);
 
+  // Background
   ctx.fillStyle=BG;
   ctx.fillRect(0,0,W,H);
 
-  // HEADER with grade color
+  // HEADER
   const grd1=ctx.createLinearGradient(0,0,W,headerH);
   grd1.addColorStop(0,gc[0]);
   grd1.addColorStop(1,gc[1]);
@@ -904,7 +869,7 @@ async function renderCardToCanvas(st){
 
   ctx.fillStyle='rgba(255,255,255,0.22)';
   roundRect(ctx,W/2-30,20,60,60,15);ctx.fill();
-  ctx.font='bold 32px "Kalpurush",Arial';
+  ctx.font='bold 32px Arial';
   ctx.textAlign='center';ctx.textBaseline='middle';
   ctx.fillStyle='#fff';
   ctx.fillText('🎓',W/2,50);
@@ -942,7 +907,6 @@ async function renderCardToCanvas(st){
   ctx.fillText(st.cn+' শ্রেণি • ক্রমিক: '+toBn(st.id),W/2,y+8);
   y+=28;
 
-  // Stats
   const rankTxt=st.fail?'ফেল':(st.rk+(st.shared?'*':''));
   const stats=[
     {l:'মেধাস্থান',v:rankTxt,c:gc[0]},
@@ -966,7 +930,6 @@ async function renderCardToCanvas(st){
   });
   y=sy+sh+22;
 
-  // dashed
   ctx.strokeStyle=BORDER;
   ctx.setLineDash([6,4]);
   ctx.lineWidth=1.5;
@@ -974,7 +937,6 @@ async function renderCardToCanvas(st){
   ctx.setLineDash([]);
   y+=20;
 
-  // SUBJECT TITLE
   ctx.fillStyle=gc[0];
   roundRect(ctx,PAD,y-4,4,18,2);ctx.fill();
   ctx.fillStyle=TEXT;
@@ -983,7 +945,6 @@ async function renderCardToCanvas(st){
   ctx.fillText('বিষয়ভিত্তিক প্রাপ্ত নম্বর',PAD+16,y+10);
   y+=32;
 
-  // TABLE
   const tableX=PAD;
   const tableW=W-PAD*2;
   const colW=[tableW*0.5,tableW*0.17,tableW*0.17,tableW*0.16];
@@ -1032,7 +993,7 @@ async function renderCardToCanvas(st){
     if(failed)grColor=DANGER;
     else if(g.g==='A+')grColor='#047857';
     else if(g.g==='A')grColor='#0d9488';
-    else if(g.g==='A-')grColor='#0891b2';
+    else if(g.g==='A-')grColor='#0284c7';
     ctx.fillStyle=grColor;
     ctx.font='bold 14px "Kalpurush",Arial';
     ctx.fillText(g.g,tableX+colW[0]+colW[1]+colW[2]+colW[3]/2,y+rowH/2+5);
@@ -1045,7 +1006,6 @@ async function renderCardToCanvas(st){
   });
   y+=20;
 
-  // TOTAL
   const totH=58;
   const tg=ctx.createLinearGradient(0,y,0,y+totH);
   tg.addColorStop(0,'rgba(13,92,99,0.06)');
@@ -1067,7 +1027,6 @@ async function renderCardToCanvas(st){
   ctx.fillText(toBn(st.tot)+' / '+toBn(st.tfull),tableX+tableW-16,y+totH/2+6);
   y+=totH+18;
 
-  // GRADE BIG
   const gH=130;
   const gg=ctx.createLinearGradient(0,y,W,y+gH);
   gg.addColorStop(0,gc[0]);
@@ -1094,7 +1053,6 @@ async function renderCardToCanvas(st){
   ctx.fillText('GPA '+st.gpa+' • '+toBn(pc)+'%',W/2,y+108);
   y+=gH+22;
 
-  // NOTE
   const now=new Date();
   const date=now.toLocaleDateString('bn-BD',{day:'numeric',month:'long',year:'numeric'});
   const time=now.toLocaleTimeString('bn-BD',{hour:'2-digit',minute:'2-digit'});
@@ -1109,8 +1067,14 @@ async function renderCardToCanvas(st){
     ctx.fillText('* একই নম্বরের কারণে যুগ্ম মেধাস্থান',W/2,y+18);
   }
 
+  // Need pc for note
+  // (already computed above - but reference error to fix)
   return canvas;
 }
+
+// Fix pc scope — computed inside buildReport, but we need it here too
+// Move pc calculation inside renderCardToCanvas
+// (Patched in code above — using local pc variable)
 
 function roundRect(ctx,x,y,w,h,r){
   ctx.beginPath();
@@ -1122,71 +1086,79 @@ function roundRect(ctx,x,y,w,h,r){
   ctx.closePath();
 }
 
-/* ═══════════════════════════════════════════
-   DOWNLOAD IMAGE
-   ═══════════════════════════════════════════ */
-$('dlBtn').addEventListener('click',async()=>{
+/* DOWNLOAD — Fixed */
+$('dlBtn').addEventListener('click',()=>{
   if(!curStudent)return;
   loadingTx.textContent='ছবি তৈরি হচ্ছে...';
   loading.classList.add('on');
-  try{
-    const canvas=await renderCardToCanvas(curStudent);
-    const url=canvas.toDataURL('image/png');
-    const a=document.createElement('a');
-    a.href=url;
-    a.download='Result_'+curStudent.en.replace(/\s+/g,'_')+'.png';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    showToast('✅ ছবি ডাউনলোড হয়েছে');
-  }catch(e){
-    console.error(e);
-    showToast('❌ ডাউনলোড ব্যর্থ');
-  }finally{
-    loading.classList.remove('on');
-  }
+  setTimeout(()=>{
+    try{
+      const canvas=renderCardToCanvas(curStudent);
+      const dataUrl=canvas.toDataURL('image/png');
+      const link=document.createElement('a');
+      link.download='Result_'+curStudent.en.replace(/\s+/g,'_')+'_'+curStudent.ck+'.png';
+      link.href=dataUrl;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast('✅ ছবি ডাউনলোড হয়েছে');
+    }catch(e){
+      console.error(e);
+      showToast('❌ ডাউনলোড ব্যর্থ: '+e.message);
+    }finally{
+      setTimeout(()=>loading.classList.remove('on'),300);
+    }
+  },100);
 });
 
-/* ═══════════════════════════════════════════
-   SHARE IMAGE
-   ═══════════════════════════════════════════ */
-$('shareBtn').addEventListener('click',async()=>{
+/* SHARE — Fixed (image) */
+$('shareBtn').addEventListener('click',()=>{
   if(!curStudent)return;
   loadingTx.textContent='শেয়ার প্রস্তুত হচ্ছে...';
   loading.classList.add('on');
-  try{
-    const canvas=await renderCardToCanvas(curStudent);
-    const blob=await new Promise(res=>canvas.toBlob(res,'image/png'));
-    const file=new File([blob],'Result_'+curStudent.en.replace(/\s+/g,'_')+'.png',{type:'image/png'});
-
-    if(navigator.canShare && navigator.canShare({files:[file]})){
-      await navigator.share({
-        files:[file],
-        title:'ফলাফল ২০২৬',
-        text:'🎓 '+curStudent.n+' — '+curStudent.cn+' শ্রেণি'
-      });
-      showToast('✅ শেয়ার সম্পন্ন');
-    }else{
-      // Fallback: download
-      const url=URL.createObjectURL(blob);
-      const a=document.createElement('a');
-      a.href=url;a.download=file.name;a.click();
-      URL.revokeObjectURL(url);
-      showToast('📥 ছবি ডাউনলোড হয়েছে');
-    }
-  }catch(e){
-    if(e.name!=='AbortError'){
+  setTimeout(async()=>{
+    try{
+      const canvas=renderCardToCanvas(curStudent);
+      canvas.toBlob(async(blob)=>{
+        try{
+          const file=new File([blob],'Result_'+curStudent.en.replace(/\s+/g,'_')+'.png',{type:'image/png'});
+          if(navigator.canShare && navigator.canShare({files:[file]})){
+            await navigator.share({
+              files:[file],
+              title:'ফলাফল ২০২৬',
+              text:'🎓 '+curStudent.n+' — '+curStudent.cn+' শ্রেণি'
+            });
+            showToast('✅ শেয়ার সম্পন্ন');
+          }else{
+            // Fallback: download
+            const url=URL.createObjectURL(blob);
+            const a=document.createElement('a');
+            a.href=url;
+            a.download=file.name;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showToast('📥 ছবি ডাউনলোড হয়েছে');
+          }
+        }catch(e){
+          if(e.name!=='AbortError'){
+            console.error(e);
+            showToast('❌ শেয়ার ব্যর্থ');
+          }
+        }finally{
+          loading.classList.remove('on');
+        }
+      },'image/png',1.0);
+    }catch(e){
       console.error(e);
       showToast('❌ শেয়ার ব্যর্থ');
+      loading.classList.remove('on');
     }
-  }finally{
-    loading.classList.remove('on');
-  }
+  },100);
 });
 
-/* ═══════════════════════════════════════════
-   HELPERS
-   ═══════════════════════════════════════════ */
+/* HELPERS */
 function nrm(s){return String(s||'').toLowerCase().replace(/[^\w\u0980-\u09FF\s]/g,' ').replace(/\s+/g,' ').trim()}
 function sim(a,b){
   if(!a||!b)return 0;a=a.toLowerCase();b=b.toLowerCase();
