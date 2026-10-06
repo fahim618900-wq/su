@@ -82,14 +82,11 @@ body{overscroll-behavior-y:contain}
 .empty-t{font-size:17px;font-weight:700;margin-bottom:6px}
 .empty-tx{font-size:13.5px;color:var(--dim);line-height:1.6}
 
-/* ═══════════════════════════════════════════
-   PREMIUM CARD — Soft grade coloring
-   ═══════════════════════════════════════════ */
+/* PREMIUM CARD */
 .st-card{background:var(--card);border-radius:16px;margin-bottom:11px;box-shadow:var(--sh);cursor:pointer;transition:all .2s;overflow:hidden;display:flex;align-items:stretch;animation:in .3s ease both;border:1px solid var(--border);position:relative}
 @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .st-card:active{transform:scale(.98);box-shadow:var(--sh-l)}
 
-/* Grade tint — soft background */
 .st-card.g-aplus{background:linear-gradient(135deg,#f0fdf4 0%,#dcfce7 100%)}
 .st-card.g-a{background:linear-gradient(135deg,#f0fdfa 0%,#ccfbf1 100%)}
 .st-card.g-aminus{background:linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 100%)}
@@ -106,7 +103,6 @@ body{overscroll-behavior-y:contain}
 [data-theme="dark"] .st-card.g-d{background:linear-gradient(135deg,#3f1010 0%,#4d1414 100%)}
 [data-theme="dark"] .st-card.g-f{background:linear-gradient(135deg,#3b0a0a 0%,#450a0a 100%)}
 
-/* Left accent strip */
 .st-card .strip{width:4px;flex-shrink:0}
 .st-card.g-aplus .strip{background:#10b981}
 .st-card.g-a .strip{background:#14b8a6}
@@ -116,7 +112,6 @@ body{overscroll-behavior-y:contain}
 .st-card.g-d .strip{background:#ef4444}
 .st-card.g-f .strip{background:#991b1b}
 
-/* Grade letter on right */
 .st-card .grade{width:56px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:19px;line-height:1;gap:3px}
 .st-card.g-aplus .grade{background:#10b981}
 .st-card.g-a .grade{background:#14b8a6}
@@ -147,7 +142,6 @@ body{overscroll-behavior-y:contain}
 
 .full-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px 12px calc(90px + var(--safe-b))}
 
-/* REPORT CARD */
 .rc{background:var(--card);border-radius:18px;box-shadow:var(--sh-l);overflow:hidden;border:1px solid var(--border)}
 .rc-top{color:#fff;padding:20px 18px;text-align:center;position:relative;overflow:hidden}
 .rc.g-aplus .rc-top{background:linear-gradient(135deg,#047857,#10b981)}
@@ -210,7 +204,6 @@ body{overscroll-behavior-y:contain}
 .rc-grade-gpa{font-size:13px;opacity:.95;position:relative;z-index:1}
 .rc-note{padding:0 18px 16px;text-align:center;font-size:10.5px;color:var(--dim);line-height:1.6}
 
-/* ACTION BAR */
 .act-bar{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--border);padding:11px 14px calc(11px + var(--safe-b));display:flex;gap:9px;z-index:10;box-shadow:0 -4px 12px rgba(0,0,0,.06)}
 .act-btn{flex:1;padding:13px;border:none;border-radius:13px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:6px;transition:all .15s}
 .act-btn.p{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 4px 12px rgba(13,92,99,.25)}
@@ -218,11 +211,9 @@ body{overscroll-behavior-y:contain}
 .act-btn.s{background:var(--bg);color:var(--text);border:1.5px solid var(--border)}
 .act-btn.s:active{background:var(--border)}
 
-/* TOAST */
 .toast{position:fixed;bottom:calc(20px + var(--safe-b));left:50%;transform:translateX(-50%) translateY(120px);background:var(--text);color:var(--card);padding:12px 20px;border-radius:22px;font-size:13px;font-weight:600;box-shadow:var(--sh-l);z-index:3000;opacity:0;transition:all .3s cubic-bezier(.4,0,.2,1);pointer-events:none;max-width:90vw;text-align:center}
 .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 
-/* LOADING */
 .loading{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:4000;display:none;align-items:center;justify-content:center;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .loading.on{display:flex}
 .loading-box{background:var(--card);padding:24px 28px;border-radius:18px;text-align:center;box-shadow:var(--sh-l)}
@@ -326,7 +317,9 @@ body{overscroll-behavior-y:contain}
 </div>
 
 <script>
-/* DATA */
+/* ═══════════════════════════════════════════
+   DATA
+   ═══════════════════════════════════════════ */
 const RAW={
   play:[
     {id:'০১',n:'রাফিয়া',en:'Rafia',m:[100,99,99,95,100]},
@@ -540,6 +533,9 @@ function gradeClass(lg){
   return'g-f';
 }
 
+/* ═══════════════════════════════════════════
+   ✅ Dense Ranking সঠিকভাবে সেটআপ করা
+   ═══════════════════════════════════════════ */
 function process(ck){
   const s=SUBS[ck];
   let list=RAW[ck].map(st=>{
@@ -562,26 +558,53 @@ function process(ck){
     }
     return{...st,ck,cn:CN[ck],subs:s,tot,tfull:full,gpa:gpa.toFixed(2),lg,fail};
   });
+  
+  // সাজানো: ফেল সবশেষে, তারপর GPA উচ্চ → নিচ, তারপর মোট নম্বর উচ্চ → নিচ
   list.sort((a,b)=>{
     if(a.fail&&!b.fail)return 1;
     if(!a.fail&&b.fail)return -1;
     if(parseFloat(b.gpa)!==parseFloat(a.gpa))return parseFloat(b.gpa)-parseFloat(a.gpa);
     return b.tot-a.tot;
   });
-  let cur=0,pG=null,pT=null,cnt=0;
-  list=list.map(st=>{
-    let rk='—',rn=999999;
-    if(!st.fail&&st.tot>0){
-      const g=parseFloat(st.gpa);
-      if(pG===null||g!==pG||st.tot!==pT)cur=cnt+1;
-      rk=String(cur);rn=cur;pG=g;pT=st.tot;
+  
+  // ═══════════════════════════════════════════
+  // ✅ সঠিক DENSE RANKING
+  // একই নম্বর → একই র‍্যাংক, পরের নতুন নম্বরে র‍্যাংক ১ করে বাড়ে
+  // ═══════════════════════════════════════════
+  let rank = 0;             // ← শুধু এই র‍্যাংক কাউন্টার
+  let prevGpa = null;
+  let prevTot = null;
+  
+  list = list.map(st => {
+    // ফেল বা ০ নম্বর হলে র‍্যাংক নেই
+    if(st.fail || st.tot === 0){
+      return { ...st, rk: '—', rn: 999999, shared: false };
     }
-    cnt++;
-    return{...st,rk,rn};
+    
+    const g = parseFloat(st.gpa);
+    
+    // ✅ নতুন GPA বা নতুন মোট নম্বর → র‍্যাংক ১ বাড়াও
+    if(prevGpa === null || g !== prevGpa || st.tot !== prevTot){
+      rank++;
+    }
+    
+    prevGpa = g;
+    prevTot = st.tot;
+    
+    return { ...st, rk: String(rank), rn: rank };
   });
-  const rc={};
-  list.forEach(st=>{if(st.rk!=='—')rc[st.rn]=(rc[st.rn]||0)+1});
-  list=list.map(st=>({...st,shared:st.rk!=='—'&&rc[st.rn]>1}));
+  
+  // কোন র‍্যাংকে কতজন — যুগ্ম কিনা চেক
+  const rc = {};
+  list.forEach(st=>{
+    if(st.rk !== '—') rc[st.rn] = (rc[st.rn] || 0) + 1;
+  });
+  
+  list = list.map(st => ({
+    ...st,
+    shared: st.rk !== '—' && rc[st.rn] > 1
+  }));
+  
   return list;
 }
 
@@ -811,7 +834,7 @@ function buildReport(st){
 }
 
 /* ═══════════════════════════════════════════
-   CANVAS RENDERER — Reliable version
+   CANVAS RENDERER
    ═══════════════════════════════════════════ */
 function renderCardToCanvas(st){
   const W=720;
@@ -852,7 +875,6 @@ function renderCardToCanvas(st){
   const ctx=canvas.getContext('2d');
   ctx.scale(scale,scale);
 
-  // Background
   ctx.fillStyle=BG;
   ctx.fillRect(0,0,W,H);
 
@@ -1067,14 +1089,8 @@ function renderCardToCanvas(st){
     ctx.fillText('* একই নম্বরের কারণে যুগ্ম মেধাস্থান',W/2,y+18);
   }
 
-  // Need pc for note
-  // (already computed above - but reference error to fix)
   return canvas;
 }
-
-// Fix pc scope — computed inside buildReport, but we need it here too
-// Move pc calculation inside renderCardToCanvas
-// (Patched in code above — using local pc variable)
 
 function roundRect(ctx,x,y,w,h,r){
   ctx.beginPath();
@@ -1086,7 +1102,7 @@ function roundRect(ctx,x,y,w,h,r){
   ctx.closePath();
 }
 
-/* DOWNLOAD — Fixed */
+/* DOWNLOAD */
 $('dlBtn').addEventListener('click',()=>{
   if(!curStudent)return;
   loadingTx.textContent='ছবি তৈরি হচ্ছে...';
@@ -1104,14 +1120,14 @@ $('dlBtn').addEventListener('click',()=>{
       showToast('✅ ছবি ডাউনলোড হয়েছে');
     }catch(e){
       console.error(e);
-      showToast('❌ ডাউনলোড ব্যর্থ: '+e.message);
+      showToast('❌ ডাউনলোড ব্যর্থ');
     }finally{
       setTimeout(()=>loading.classList.remove('on'),300);
     }
   },100);
 });
 
-/* SHARE — Fixed (image) */
+/* SHARE */
 $('shareBtn').addEventListener('click',()=>{
   if(!curStudent)return;
   loadingTx.textContent='শেয়ার প্রস্তুত হচ্ছে...';
@@ -1130,7 +1146,6 @@ $('shareBtn').addEventListener('click',()=>{
             });
             showToast('✅ শেয়ার সম্পন্ন');
           }else{
-            // Fallback: download
             const url=URL.createObjectURL(blob);
             const a=document.createElement('a');
             a.href=url;
