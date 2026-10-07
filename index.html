@@ -534,92 +534,77 @@ function gradeClass(lg){
 }
 
 /* ═══════════════════════════════════════════
-   ✅ প্রথম কোডের গণনা-সিস্টেম
-   - Unit = প্রতিটি বিষয় আলাদা
-   - GPA = Σ grade point ÷ Unit সংখ্যা
-   - কোনো Unit-এ F → GPA = 0, LG = F
-   - Rank = মোট নম্বরের descending dense ranking
-   - Tie হলে একই rank, পরের নতুন নম্বরে +১
-   - অনুপস্থিত (সব ০) → rank = null
+   ✅ Dense Ranking সঠিকভাবে সেটআপ করা
    ═══════════════════════════════════════════ */
 function process(ck){
-  const s = SUBS[ck];
-
-  // ১) প্রতিটি শিক্ষার্থীর Unit-ভিত্তিক গণনা
-  let list = RAW[ck].map(st => {
-    let tot = 0, full = 0, fail = false, gpSum = 0;
-    let allZero = true;
-    let unitCount = 0;
-
-    st.m.forEach((m, i) => {
-      const fm = s[i][1];
-      tot += m;
-      full += fm;
-      if (m > 0) allZero = false;
-
-      const g = grd(m, fm);
-      if (g.g === 'F') fail = true;
-      gpSum += g.p;
-      unitCount++;
+  const s=SUBS[ck];
+  let list=RAW[ck].map(st=>{
+    let tot=0,full=0,fail=false,gp=0;
+    st.m.forEach((m,i)=>{
+      const fm=s[i][1];tot+=m;full+=fm;
+      const g=grd(m,fm);if(g.g==='F')fail=true;gp+=g.p;
     });
-
-    const absent = allZero || tot === 0;
-
-    let gpa = 0, lg = 'F';
-    if (!fail && !absent && unitCount > 0) {
-      const avg = gpSum / unitCount;
-      gpa = parseFloat(avg.toFixed(2));
-      if (gpa >= 5)        { gpa = 5; lg = 'A+'; }
-      else if (gpa >= 4)   lg = 'A';
-      else if (gpa >= 3.5) lg = 'A-';
-      else if (gpa >= 3)   lg = 'B';
-      else if (gpa >= 2)   lg = 'C';
-      else if (gpa >= 1)   lg = 'D';
-      else                 lg = 'F';
-    } else {
-      gpa = 0; lg = 'F';
+    let gpa=0,lg='F';
+    if(!fail&&tot>0){
+      const avg=gp/st.m.length;
+      gpa=parseFloat(avg.toFixed(2));
+      if(gpa>=5){gpa=5;lg='A+'}
+      else if(gpa>=4)lg='A';
+      else if(gpa>=3.5)lg='A-';
+      else if(gpa>=3)lg='B';
+      else if(gpa>=2)lg='C';
+      else if(gpa>=1)lg='D';
+      else lg='F';
     }
-
-    return {
-      ...st, ck, cn: CN[ck], subs: s,
-      tot, tfull: full,
-      gpa: gpa.toFixed(2),
-      lg, fail, absent
-    };
+    return{...st,ck,cn:CN[ck],subs:s,tot,tfull:full,gpa:gpa.toFixed(2),lg,fail};
   });
-
-  // ২) মোট নম্বর descending sort
-  list.sort((a, b) => {
-    if (a.absent && !b.absent) return 1;
-    if (!a.absent && b.absent) return -1;
-    return b.tot - a.tot;
+  
+  // সাজানো: ফেল সবশেষে, তারপর GPA উচ্চ → নিচ, তারপর মোট নম্বর উচ্চ → নিচ
+  list.sort((a,b)=>{
+    if(a.fail&&!b.fail)return 1;
+    if(!a.fail&&b.fail)return -1;
+    if(parseFloat(b.gpa)!==parseFloat(a.gpa))return parseFloat(b.gpa)-parseFloat(a.gpa);
+    return b.tot-a.tot;
   });
-
-  // ৩) Dense ranking — মোট নম্বরের ভিত্তিতে
-  let rank = 0;
+  
+  // ═══════════════════════════════════════════
+  // ✅ সঠিক DENSE RANKING
+  // একই নম্বর → একই র‍্যাংক, পরের নতুন নম্বরে র‍্যাংক ১ করে বাড়ে
+  // ═══════════════════════════════════════════
+  let rank = 0;             // ← শুধু এই র‍্যাংক কাউন্টার
+  let prevGpa = null;
   let prevTot = null;
-
+  
   list = list.map(st => {
-    if (st.absent) {
+    // ফেল বা ০ নম্বর হলে র‍্যাংক নেই
+    if(st.fail || st.tot === 0){
       return { ...st, rk: '—', rn: 999999, shared: false };
     }
-    if (prevTot === null || st.tot !== prevTot) {
+    
+    const g = parseFloat(st.gpa);
+    
+    // ✅ নতুন GPA বা নতুন মোট নম্বর → র‍্যাংক ১ বাড়াও
+    if(prevGpa === null || g !== prevGpa || st.tot !== prevTot){
       rank++;
     }
+    
+    prevGpa = g;
     prevTot = st.tot;
-    return { ...st, rk: String(rank), rn: rank, shared: false };
+    
+    return { ...st, rk: String(rank), rn: rank };
   });
-
-  // ৪) যুগ্ম মেধাস্থান চিহ্নিত করা
+  
+  // কোন র‍্যাংকে কতজন — যুগ্ম কিনা চেক
   const rc = {};
-  list.forEach(st => {
-    if (st.rk !== '—') rc[st.rn] = (rc[st.rn] || 0) + 1;
+  list.forEach(st=>{
+    if(st.rk !== '—') rc[st.rn] = (rc[st.rn] || 0) + 1;
   });
+  
   list = list.map(st => ({
     ...st,
     shared: st.rk !== '—' && rc[st.rn] > 1
   }));
-
+  
   return list;
 }
 
@@ -757,8 +742,8 @@ function renderList(list,qv){
     const bnHtml=bnHl?hi(it.n,qv):esc(it.n);
     const enHtml=enHl?hi(it.en,qv):esc(it.en);
 
-    const rankTxt = it.absent ? 'অনুপস্থিত' : (it.fail ? 'ফেল' : (it.rk+(it.shared?'*':'')));
-    const gradeLetter = it.absent ? '—' : (it.fail ? 'F' : it.lg);
+    const rankTxt=it.fail?'ফেল':(it.rk+(it.shared?'*':''));
+    const gradeLetter=it.fail?'F':it.lg;
 
     c.innerHTML=
       '<div class="strip"></div>'+
@@ -805,7 +790,7 @@ function buildReport(st){
   const date=now.toLocaleDateString('bn-BD',{day:'numeric',month:'long',year:'numeric'});
   const time=now.toLocaleTimeString('bn-BD',{hour:'2-digit',minute:'2-digit'});
   const gc=gradeClass(st.lg);
-  const rankTxt = st.absent ? 'অনুপস্থিত' : (st.fail ? 'ফেল' : (st.rk+(st.shared?' (যুগ্ম)':'')));
+  const rankTxt=st.fail?'ফেল':(st.rk+(st.shared?' (যুগ্ম)':''));
 
   return ''+
     '<div class="rc '+gc+'" id="rc">'+
@@ -944,7 +929,7 @@ function renderCardToCanvas(st){
   ctx.fillText(st.cn+' শ্রেণি • ক্রমিক: '+toBn(st.id),W/2,y+8);
   y+=28;
 
-  const rankTxt = st.absent ? 'অনুপস্থিত' : (st.fail ? 'ফেল' : (st.rk+(st.shared?'*':'')));
+  const rankTxt=st.fail?'ফেল':(st.rk+(st.shared?'*':''));
   const stats=[
     {l:'মেধাস্থান',v:rankTxt,c:gc[0]},
     {l:'GPA',v:st.gpa,c:gc[0]},
